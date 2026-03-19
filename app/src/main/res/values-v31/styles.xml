@@ -83,17 +83,18 @@
 	<style name="TTheme.Preferences" parent="TTheme">
 		<item name="preferenceTheme">@style/TTheme.Preferences.Overlay</item>
 
-		<!-- title bar -->
-		<item name="tint">@color/prefs_title_text_color</item>
-		<item name="colorOnSurface">@color/prefs_title_text_color</item>
-		<item name="colorSurfaceContainer">@color/prefs_title_background</item>
+		<item name="android:windowBackground">#000000</item>
+		<item name="android:statusBarColor">#000000</item>
+		<item name="colorPrimary">#E4FF00</item>
+		<item name="colorOnPrimary">#000000</item>
+		<item name="colorOnSurface">#FFFFFF</item>
+		<item name="colorOnSurfaceVariant">#FFFFFF</item>
+		<item name="colorSecondary">#E4FF00</item>
+		<item name="colorSurfaceContainer">#000000</item>
 
-		<!-- page -->
-		<item name="android:windowBackground">@color/prefs_page_background</item> <!-- page background -->
-		<item name="colorSecondary">@color/prefs_category_title_color</item> <!-- category title -->
-		<item name="android:textAppearanceListItem">@style/TextAppearance.Material3.TitleLarge</item> <!-- preference title -->
-
-<!--		<item name="android:popupWindowStyle">@style/AppDropDownStyle</item> &lt;!&ndash; dropdown background &ndash;&gt;-->
+		<item name="android:textColorPrimary">#E4FF00</item>
+		<item name="android:textColorSecondary">#FFFFFF</item>
+		<item name="android:textAppearanceListItem">@style/TextAppearance.Material3.TitleLarge</item>
 
 		<!--
 				// ANY PREFERENCE

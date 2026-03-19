@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_settings">Configuración de Traditional T9</string>
+	<string name="app_settings">Configuración de Keypad9</string>
 	<string name="add_word_add">Agregar</string>
 	<string name="add_word_confirm">¿Agregar la palabra \"%1$s\" a %2$s?</string>
 	<string name="add_word_no_selection">Mueve el cursor dentro de una palabra para añadirla.</string>
@@ -126,7 +126,7 @@
 	<string name="function_reset_keys_done">Valores de teclas por defecto restaurados</string>
 	<string name="setup_tt9_on">%1$s está habilitado</string>
 	<string name="setup_tt9_off">%1$s está deshabilitado</string>
-	<string name="setup_click_here_to_enable">Pulse aquí para habilitar TT9 en la configuración de Android</string>
+	<string name="setup_click_here_to_enable">Pulse aquí para habilitar Keypad9 en la configuración de Android</string>
 	<string name="setup_spell_checker">Corrector ortográfico del sistema</string>
 	<string name="setup_spell_checker_on">El corrector ortográfico del sistema subraya el texto en rojo y puede impedir añadir nuevas palabras. Toca para desactivar.</string>
 	<string name="setup_spell_checker_off">Desactivado</string>

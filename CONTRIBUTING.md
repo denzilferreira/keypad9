@@ -1,4 +1,4 @@
-# Traditional T9 Contribution Guide
+# Keypad9 Contribution Guide
 If you would like to contribute to the project by fixing a bug, adding a new language or something else, read below.
 
 ## Getting Started
@@ -61,7 +61,7 @@ To support a new language one needs to:
   - `hasABC` _(optional)_. Disables ABC mode for this language. Useful for languages where the writing system is not an alphabet, such as East Asian languages. Default: `yes`.
   - `hasSpaceBetweenWords` _(optional)_ set to `no` when the language does not use spaces between words. For example: Thai, Chinese, Japanese, Korean, and so on. The default is `yes`.
   - `hasUpperCase` _(optional)_ set to `no` when the language has no upper- and lowercase letters. For example: Arabic, Hebrew, East Asian languages, and so on. The default is `yes`.
-  - `iconABC` _(optional)_ is the name of the ABC icon for this language. The icon must be a Drawable resource in `app/src/main/res/drawable` folder. It must not include `.xml`. The icon will be shown in the system notification are when TT9 is in ABC mode and the respective option is on.
+  - `iconABC` _(optional)_ is the name of the ABC icon for this language. The icon must be a Drawable resource in `app/src/main/res/drawable` folder. It must not include `.xml`. The icon will be shown in the system notification are when Keypad9 is in ABC mode and the respective option is on.
   - `iconT9` _(optional)_ is the name of the Predictive mode icon for this language. Usage is similar to `iconABC`.
   - `name` _(optional)_ is automatically generated and equals the native name of the language (e.g. "English", "Deutsch", "Українська"). However, sometimes, the automatically selected name may be ambiguous. For example, both Portuguese in Portugal and Brazil will default to "Português", so assigning "Português brasileiro" would make it clear it's the language used in Brazil.
   - `numerals` _(optional)_ can be used to set a custom list of numerals. The list must contain exactly 10 characters equivalent to the digits from 0 to 9. For example, in Arabic you could use: `numerals: [٠,١,٢,٣,٤,٥,٦,٧,٨,٩]`.
@@ -141,10 +141,10 @@ Using the above example, when the user types "221-48-123", it will result in: "�
 See `Korean.yml` with `ko-utf8.csv`, and `ChinesePinyin.yml` with `zh-pinyin.csv` for more examples.
 
 ## Merging Languages
-Traditional T9 does not officially support typing in more than one language simultaneously, and it will not provide such a possibility in the future. But if you are interested in a do-it-yourself solution, you can achieve it by merging the dictionaries for two (or more) languages into a new language. Follow the steps in [this discussion](https://github.com/sspanak/tt9/issues/713) about merging Czech and English. Just keep in mind: a) there can be no repeating words; b) it is not recommended to go over 2 million words, especially on low-end devices. Normal performance is not guaranteed beyond that limit.
+Keypad9 does not officially support typing in more than one language simultaneously, and it will not provide such a possibility in the future. But if you are interested in a do-it-yourself solution, you can achieve it by merging the dictionaries for two (or more) languages into a new language. Follow the steps in [this discussion](https://github.com/sspanak/tt9/issues/713) about merging Czech and English. Just keep in mind: a) there can be no repeating words; b) it is not recommended to go over 2 million words, especially on low-end devices. Normal performance is not guaranteed beyond that limit.
 
 ## Translating the UI
-To translate Traditional T9 menus and messages in your language, add: `res/values-your-lang/strings.xml`. Then use the Android Studio translation editor. It is very handy.
+To translate Keypad9 menus and messages in your language, add: `res/values-your-lang/strings.xml`. Then use the Android Studio translation editor. It is very handy.
 
 Alternatively, if you don't have Android Studio, you could just use `res/values/strings.xml` as a reference and translate all strings in your file, skipping the ones that have the `translatable="false"` attribute.
 

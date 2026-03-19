@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_settings">„TT9“ nustatymai</string>
+	<string name="app_settings">„Keypad9“ nustatymai</string>
 	<string name="pref_font_size_large">Didelis</string>
 	<string name="completed">Baigta</string>
 	<string name="loading">Įkeliama…</string>
@@ -129,7 +129,7 @@
 	<string name="setup_default_keyboard">Pasirinkite numatytąją klaviatūrą</string>
 	<string name="setup_tt9_on">„%1$s“ yra įjungtas</string>
 	<string name="setup_tt9_off">„%1$s“ yra išjungtas</string>
-	<string name="setup_click_here_to_enable">Spauskite čia norėdami įjungti „TT9“ per „Android“ nustatymus.</string>
+	<string name="setup_click_here_to_enable">Spauskite čia norėdami įjungti „Keypad9“ per „Android“ nustatymus.</string>
 
 	<string name="setup_spell_checker">Sistemos rašybos tikrintuvas</string>
 	<string name="setup_spell_checker_on">Sistemos rašybos tikrintuvas pabraukia tekstą raudonai ir gali neleisti pridėti naujų žodžių. Palieskite, kad išjungtumėte.</string>

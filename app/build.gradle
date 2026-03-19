@@ -8,7 +8,6 @@ apply from: 'build-dictionaries.gradle'
 apply from: 'validate-languages.gradle'
 apply from: 'help-tools.gradle'
 apply from: 'status-icon-tools.gradle'
-apply from: 'version-tools.gradle'
 
 
 tasks.register('validateLanguages') {
@@ -70,12 +69,6 @@ tasks.register('updateStatusIcons') {
 	}
 }
 
-tasks.register('updateManifest') {
-	doLast {
-		updateManifestVersion(getVersionCode(), getVersionName())
-	}
-}
-
 clean {
 	delete LANGUAGES_OUTPUT_DIR
 	delete DICTIONARIES_OUTPUT_DIR
@@ -89,9 +82,7 @@ def getDonationUrl = { -> new File(FUNDING_FILE)
 		.replaceFirst("^([^:]+)\\s*:\\s*([^\\n]+)", "https://\$1.com/\$2")
 		.replace('_', '-')
 }
-def getVerCode = { -> return getVersionCode() }
-def getVerName = { -> return getVersionName() }
-def getVersionString = { flavor -> return flavor == 'debug' ? getDebugVersion() : getReleaseVersion() }
+def getVersionString = { flavor -> return "1.0" }
 
 
 android {
@@ -103,8 +94,8 @@ android {
 		buildFeatures.buildConfig = true
 		minSdk = 24
 		targetSdk = 36
-		versionCode = getVerCode()
-		versionName = getVerName()
+		versionCode = 1
+		versionName = "1.0"
 
 		buildConfigField 'String', 'DICTIONARY_EXTENSION', "\"${DICTIONARY_OUTPUT_EXTENSION}\""
 		buildConfigField 'String', 'DOCS_DIR', "\"${DOCS_DIR_NAME}\""
@@ -141,16 +132,6 @@ android {
 			buildConfigField 'Boolean', 'LITE', 'false'
 			buildConfigField 'Boolean', 'PREMIUM', 'false'
 		}
-		lite {
-			dimension 'app'
-			buildConfigField 'Boolean', 'LITE', 'true'
-			buildConfigField 'Boolean', 'PREMIUM', 'false'
-		}
-		premium {
-			dimension 'app'
-			buildConfigField 'Boolean', 'LITE', 'true'
-			buildConfigField 'Boolean', 'PREMIUM', 'true'
-		}
 	}
 
 	applicationVariants.configureEach { variant ->
@@ -175,17 +156,10 @@ android {
 			} catch (UnknownTaskException ignored) {}
 		}
 
-		assembleLiteDebug.finalizedBy(updateManifest)
-		assembleFullDebug.finalizedBy(updateManifest)
-		assemblePremiumDebug.finalizedBy(updateManifest)
-		assembleLiteRelease.finalizedBy(updateManifest)
-		assembleFullRelease.finalizedBy(updateManifest)
-		assemblePremiumRelease.finalizedBy(updateManifest)
-
 		variant.outputs.configureEach {
 			def fullSuffix = variant.flavorName == 'full' ? '-full' : ''
 			def debugSuffix = variant.name.containsIgnoreCase('debug') ? '-debug' : ''
-			outputFileName = "${APP_NAME}-v${getVerName()}${fullSuffix}${debugSuffix}.apk"
+			outputFileName = "${APP_NAME}-v1.0${fullSuffix}${debugSuffix}.apk"
 		}
 	}
 }
@@ -193,5 +167,4 @@ android {
 dependencies {
 	implementation 'androidx.preference:preference:1.2.1'
 	implementation 'com.google.android.material:material:1.13.0'
-	premiumImplementation 'com.android.billingclient:billing:8.3.0'
 }

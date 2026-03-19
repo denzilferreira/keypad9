@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_settings">TT9 Impostazioni</string>
+	<string name="app_settings">Keypad9 Impostazioni</string>
 	<string name="pref_font_size_large">Grande</string>
 	<string name="completed">Completato</string>
 	<string name="loading">Caricamento…</string>
@@ -100,7 +100,7 @@
 	<string name="setup_default_keyboard">Seleziona la tastiera predefinita</string>
 	<string name="setup_tt9_on">%1$s è abilitato</string>
 	<string name="setup_tt9_off">%1$s è disabilitato</string>
-	<string name="setup_click_here_to_enable">Clicca qui per abilitare TT9 dalle impostazioni di Android.</string>
+	<string name="setup_click_here_to_enable">Clicca qui per abilitare Keypad9 dalle impostazioni di Android.</string>
 	<string name="setup_spell_checker">Controllo ortografico di sistema</string>
 	<string name="setup_spell_checker_on">Il correttore ortografico di sistema sottolinea il testo in rosso e può impedire l’aggiunta di nuove parole. Tocca per disattivare.</string>
 	<string name="setup_spell_checker_off">Disabilitato</string>

@@ -53,7 +53,18 @@
 		<item name="android:orientation">horizontal</item>
 	</style>
 
-	<style name="TTheme.Preferences" parent="Theme.AppCompat.DayNight" />
+	<style name="TTheme.Preferences" parent="Theme.AppCompat.DayNight">
+		<item name="preferenceTheme">@style/TTheme.Preferences.Overlay</item>
+		<item name="android:windowBackground">#000000</item>
+		<item name="android:statusBarColor">#000000</item>
+		<item name="colorPrimary">#E4FF00</item>
+		<item name="colorOnPrimary">#000000</item>
+		<item name="colorOnSurface">#FFFFFF</item>
+		<item name="colorOnSurfaceVariant">#FFFFFF</item>
+		<item name="colorSecondary">#E4FF00</item>
+		<item name="android:textColorPrimary">#E4FF00</item>
+		<item name="android:textColorSecondary">#FFFFFF</item>
+	</style>
 
 	<style name="TTheme.Preferences.KeyboardPreview">
 		<item name="android:layout_width">wrap_content</item>
