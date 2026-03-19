@@ -115,7 +115,7 @@
 	<string name="setup_default_keyboard">Selecionar teclado padrão</string>
 	<string name="setup_tt9_on">%1$s está ativado</string>
 	<string name="setup_tt9_off">%1$s está desativado</string>
-	<string name="setup_click_here_to_enable">Clique aqui para ativar TT9 nas configurações do Android.</string>
+	<string name="setup_click_here_to_enable">Clique aqui para ativar Keypad9 nas configurações do Android.</string>
 	<string name="setup_spell_checker">Corretor ortográfico do sistema</string>
 	<string name="setup_spell_checker_on">O corretor ortográfico do sistema sublinha o texto em vermelho e pode impedir a adição de novas palavras. Toque para desativar.</string>
 	<string name="setup_spell_checker_off">Desativado</string>

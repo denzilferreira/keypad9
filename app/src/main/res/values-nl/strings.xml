@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_settings">TT9 Opties</string>
+	<string name="app_settings">Keypad9 Opties</string>
 	<string name="loading">Laden…</string>
 	<string name="error_unexpected">Er is een onverwachte fout opgetreden.</string>
 
@@ -102,7 +102,7 @@
 	<string name="setup_default_keyboard">Standaardtoetsenbord selecteren</string>
 	<string name="setup_tt9_on">%1$s is ingeschakeld</string>
 	<string name="setup_tt9_off">%1$s is uitgeschakeld</string>
-	<string name="setup_click_here_to_enable">Klik hier om TT9 in te schakelen vanuit de Android-instellingen.</string>
+	<string name="setup_click_here_to_enable">Klik hier om Keypad9 in te schakelen vanuit de Android-instellingen.</string>
 	<string name="setup_spell_checker">Systeemspellingscontrole</string>
 	<string name="setup_spell_checker_on">De systeemspellingscontrole onderstreept tekst in rood en kan het toevoegen van nieuwe woorden verhinderen. Tik om uit te schakelen.</string>
 	<string name="setup_spell_checker_off">Uitgeschakeld</string>

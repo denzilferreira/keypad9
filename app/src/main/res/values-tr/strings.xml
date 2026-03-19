@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_settings">TT9 Ayarlar</string>
+	<string name="app_settings">Keypad9 Ayarlar</string>
 	<string name="loading">Yükleniyor…</string>
 	<string name="error_unexpected">Beklenmeyen bir hata ile karşılaşıldı.</string>
 
@@ -95,7 +95,7 @@
 	<string name="setup_default_keyboard">Varsayılan Klavyeyi Seçin</string>
 	<string name="setup_tt9_on">%1$s devrede</string>
 	<string name="setup_tt9_off">%1$s devre dışı</string>
-	<string name="setup_click_here_to_enable">Android ayarlarında TT9 uygulamasını etkinleştirmek için burayı tıklayın.</string>
+	<string name="setup_click_here_to_enable">Android ayarlarında Keypad9 uygulamasını etkinleştirmek için burayı tıklayın.</string>
 	<string name="setup_spell_checker">Sistem Yazım Denetleyicisi</string>
 	<string name="setup_spell_checker_on">Sistem yazım denetleyicisi metni kırmızıyla altı çizili gösterir ve yeni kelimeler eklemeyi engelleyebilir. Devre dışı bırakmak için dokunun.</string>
 	<string name="setup_spell_checker_off">Devre dışı</string>

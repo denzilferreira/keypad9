@@ -31,12 +31,12 @@
 	<color name="key_lf4_text">@color/key_fn_text</color>
 	<color name="key_lf4_alternative_text">@color/key_fn_alternative_text</color> <!-- 'hold' functions -->
 
-	<color name="key_ok_background">#1a73e8</color>
+	<color name="key_ok_background">#E4FF00</color>
 	<color name="key_ok_border">@android:color/transparent</color>
 	<color name="key_ok_ripple">#0961d6</color>
-	<color name="key_ok_text">#fff</color>
+	<color name="key_ok_text">#000000</color>
 
-	<color name="suggestion_selected_background">#8cb7f9</color> <!-- 8ed0fe / 7ecbff / #FFB27E / 73c7ff / 7ecfe2 / 8ac8f1 -->
+	<color name="suggestion_selected_background">#E4FF00</color>
 	<color name="suggestion_selected_text">#000</color>
 	<color name="suggestion_separator">#888888</color>
 
