@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="dictionary_url" translatable="false">https://raw.githubusercontent.com/sspanak/tt9/%1$s/downloads/%2$s</string>
-	<string name="app_name" translatable="false">Traditional T9</string>
-	<string name="app_name_short" translatable="false">TT9</string>
-	<string name="app_settings">TT9 Settings</string>
+	<string name="app_name" translatable="false">Keypad9</string>
+	<string name="app_name_short" translatable="false">Keypad9</string>
+	<string name="app_settings">Keypad9 Settings</string>
 	<string name="click_here_for_preview">Click here for preview</string>
 	<string name="completed">Completed</string>
 	<string name="delete">Delete</string>
@@ -269,7 +269,7 @@
 	<string name="setup_default_keyboard">Select Default Keyboard</string>
 	<string name="setup_tt9_on">%1$s is enabled</string>
 	<string name="setup_tt9_off">%1$s is disabled</string>
-	<string name="setup_click_here_to_enable">Click here to enable TT9 from Android Settings.</string>
+	<string name="setup_click_here_to_enable">Click here to enable Keypad9 from Android Settings.</string>
 	<string name="setup_spell_checker">System Spell Checker</string>
 	<string name="setup_spell_checker_on">The system spell checker underlines text in red and may prevent adding new words. Tap to disable.</string>
 	<string name="setup_spell_checker_off">Disabled</string>

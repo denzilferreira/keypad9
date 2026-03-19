@@ -1,5 +1,5 @@
-# Traditional T9 Installation Guide
-Traditional T9 has two variants: "lite" and "full". The "lite" version is the standard one, available on all app stores and GitHub, while the "full" version is only on GitHub.
+# Keypad9 Installation Guide
+Keypad9 has two variants: "lite" and "full". The "lite" version is the standard one, available on all app stores and GitHub, while the "full" version is only on GitHub.
 
 The "lite" version is meant to take minimum storage space and for fast upgrades over the air. The APK is about 2 Mb and contains no language files. It downloads them on demand from GitHub. But excluding that, it uses no Internet at all.
 
@@ -8,19 +8,19 @@ The "full" version has all language files bundled in the APK, making it about 70
 _The "lite" version is available since release 34.0. Before that, the APK always included all available languages, meaning all older versions were always "full"._
 
 ## Devices with Google
-On devices with Google Services, the recommended way of installing Traditional T9 is from the Play Store. New releases usually appear one working day after the release on GitHub.
+On devices with Google Services, the recommended way of installing Keypad9 is from the Play Store. New releases usually appear one working day after the release on GitHub.
 
-_Google Play Store uses the .aab file format, which is incompatible with the .apk format in all other sources. This means you must first uninstall Traditional T9 if you want to switch to or from the Play Store._
+_Google Play Store uses the .aab file format, which is incompatible with the .apk format in all other sources. This means you must first uninstall Keypad9 if you want to switch to or from the Play Store._
 
 ## Devices without Google
 If your device does not have Google services but allows installing APKs, you can use an alternative app store or manually download and install the APK from Github. Each variant has pros and cons and it is a matter of a personal preference which one to choose.
 
 ### From F-Droid
-Just like Play Store, F-droid will automatically manage downloads and keep Traditional T9 up-to-date. The downside is new versions may become available as late as two weeks after the official release on GitHub.
+Just like Play Store, F-droid will automatically manage downloads and keep Keypad9 up-to-date. The downside is new versions may become available as late as two weeks after the official release on GitHub.
 
 If you don't have F-droid, get the official F-droid APK from https://f-droid.org/ and install it. For more info, refer to the [installation instructions](https://f-droid.org/en/docs/Get_F-Droid/).
 
-After you get F-droid working, just open it, search for "Traditional T9" and install it.
+After you get F-droid working, just open it, search for "Keypad9" and install it.
 
 ### From Uptodown
 Uptodown is another Play Store alternative, very similar to F-droid. What is different is, the new releases appear within 1-2 days after the GitHub release.
@@ -30,7 +30,7 @@ If you don't have the Uptodown Store, download and install it from [uptodown.com
 ### From GitHub
 GitHub is the primary release platform. All new releases are published there first. Also, it is the only place where you can find the "full" version. However, it is not an application store, which means you will have to manually check for and install updates. And, it requires a bit more technical skill than the other options.
 
-To obtain TT9 from GitHub, go to the [Releases section](https://github.com/sspanak/tt9/releases). Then either download the APK on your device or download it on a computer and transfer it to the device. After that, just click or tap to install. If custom APK installation is enabled, it will just work. If not, Android may show a popup, asking you to grant the installation permission, before proceeding.
+To obtain Keypad9 from GitHub, go to the [Releases section](https://github.com/sspanak/tt9/releases). Then either download the APK on your device or download it on a computer and transfer it to the device. After that, just click or tap to install. If custom APK installation is enabled, it will just work. If not, Android may show a popup, asking you to grant the installation permission, before proceeding.
 
 In some cases, installation permissions are disabled by default, but you can usually enable them by going to Android Settings → Apps → Settings → Security, then enabling "Installation from unknown sources".
 
@@ -71,7 +71,7 @@ _If you are installing over a previously installed version, you may have to unin
 adb shell ime enable io.github.sspanak.tt9/.ime.TraditionalT9
 ```
 
-_That's it! TT9 should appear the next you start typing._
+_That's it! Keypad9 should appear the next you start typing._
 
 ### Uninstall
 

@@ -1,15 +1,15 @@
-# Traditional T9
-Questo manuale spiega come configurare e utilizzare Traditional T9 in diversi scenari. Per le istruzioni di installazione e le informazioni sulle versioni "lite" e "full", consultare la [Guida all’installazione](https://github.com/sspanak/tt9/blob/master/docs/installation.md) su GitHub. Infine, è possibile dare un’occhiata alla [pagina principale del repository](https://github.com/sspanak/tt9), che include tutto il codice sorgente, una guida per sviluppatori, la politica sulla privacy e la documentazione supplementare.
+# Keypad9
+Questo manuale spiega come configurare e utilizzare Keypad9 in diversi scenari. Per le istruzioni di installazione e le informazioni sulle versioni "lite" e "full", consultare la [Guida all’installazione](https://github.com/sspanak/tt9/blob/master/docs/installation.md) su GitHub. Infine, è possibile dare un’occhiata alla [pagina principale del repository](https://github.com/sspanak/tt9), che include tutto il codice sorgente, una guida per sviluppatori, la politica sulla privacy e la documentazione supplementare.
 
 ## Configurazione iniziale
-Dopo l’installazione, per prima cosa bisogna abilitare Traditional T9 come tastiera Android. Per farlo, cliccare sull'icona del launcher. Se è necessaria un'azione, tutte le opzioni tranne Configurazione Iniziale saranno disabilitate e apparirà l'etichetta: "TT9 è disabilitato". Andare su Configurazione Iniziale e abilitarlo.
+Dopo l’installazione, per prima cosa bisogna abilitare Keypad9 come tastiera Android. Per farlo, cliccare sull'icona del launcher. Se è necessaria un'azione, tutte le opzioni tranne Configurazione Iniziale saranno disabilitate e apparirà l'etichetta: "Keypad9 è disabilitato". Andare su Configurazione Iniziale e abilitarlo.
 
 _Se l'icona non appare subito dopo l’installazione, riavviare il telefono, e dovrebbe apparire. Ciò è dovuto al tentativo di Android di risparmiare batteria non aggiornando la lista delle app appena installate._
 
 ### Utilizzo su telefoni solo touchscreen
 Sui dispositivi con touchscreen si consiglia inoltre vivamente di disattivare il correttore ortografico di sistema. Quando è attivo, sottolinea in rosso alcune o tutte le parole digitate.
 
-Un altro problema è che il correttore ortografico può mostrare una finestra pop-up confusa con la voce “Aggiungi parola”. Questa finestra aggiungerà nuove parole alla tastiera di sistema predefinita (di solito Gboard) e non al dizionario di Traditional T9.
+Un altro problema è che il correttore ortografico può mostrare una finestra pop-up confusa con la voce “Aggiungi parola”. Questa finestra aggiungerà nuove parole alla tastiera di sistema predefinita (di solito Gboard) e non al dizionario di Keypad9.
 
 Per evitare tali situazioni, il correttore ortografico di sistema deve essere disattivato.
 
@@ -18,19 +18,19 @@ Se è necessario eseguire questo passaggio, la voce “Correttore ortografico di
 Dopo aver completato la configurazione iniziale, consultare la sezione [Tastiera a schermo](#tastierino-a-schermo) per ulteriori suggerimenti e consigli.
 
 ### Abilitare la Modalità Predittiva
-La Modalità Predittiva richiede che venga caricato un dizionario di lingua per fornire suggerimenti di parole. È possibile attivare le lingue abilitate e caricare i loro dizionari da Schermata Impostazioni → [Lingue](#opzioni-di-lingua). In caso di dimenticanza, Traditional T9 caricherà automaticamente il dizionario quando si inizia a digitare. Per ulteriori informazioni, [vedi sotto](#opzioni-di-lingua).
+La Modalità Predittiva richiede che venga caricato un dizionario di lingua per fornire suggerimenti di parole. È possibile attivare le lingue abilitate e caricare i loro dizionari da Schermata Impostazioni → [Lingue](#opzioni-di-lingua). In caso di dimenticanza, Keypad9 caricherà automaticamente il dizionario quando si inizia a digitare. Per ulteriori informazioni, [vedi sotto](#opzioni-di-lingua).
 
 #### Note per telefoni di fascia bassa
-Il caricamento del dizionario può saturare i telefoni di fascia bassa. Quando si usa la versione "lite" di TT9, ciò può causare l'interruzione dell’operazione da parte di Android. Se il caricamento dura più di 30 secondi, collegare il caricatore o assicurarsi che lo schermo rimanga acceso durante il caricamento.
+Il caricamento del dizionario può saturare i telefoni di fascia bassa. Quando si usa la versione "lite" di Keypad9, ciò può causare l'interruzione dell’operazione da parte di Android. Se il caricamento dura più di 30 secondi, collegare il caricatore o assicurarsi che lo schermo rimanga acceso durante il caricamento.
 
 È possibile evitare quanto sopra utilizzando invece la versione "full".
 
 #### Note per Android 13 o versioni successive
-Di default, le notifiche per le nuove app installate sono disabilitate. Si consiglia di abilitarle. In questo modo, si riceverà una notifica quando ci sono aggiornamenti del dizionario e, una volta scelto di installarli, TT9 mostrerà lo stato di caricamento. Gli aggiornamenti vengono rilasciati al massimo una volta al mese, quindi non ci si deve preoccupare di ricevere troppo spam.
+Di default, le notifiche per le nuove app installate sono disabilitate. Si consiglia di abilitarle. In questo modo, si riceverà una notifica quando ci sono aggiornamenti del dizionario e, una volta scelto di installarli, Keypad9 mostrerà lo stato di caricamento. Gli aggiornamenti vengono rilasciati al massimo una volta al mese, quindi non ci si deve preoccupare di ricevere troppo spam.
 
 È possibile abilitare le notifiche andando su Impostazioni → Lingue e attivando Notifiche del Dizionario.
 
-_Se si decide di tenerle disattivate, TT9 continuerà a funzionare senza problemi, ma sarà necessario gestire i dizionari manualmente._
+_Se si decide di tenerle disattivate, Keypad9 continuerà a funzionare senza problemi, ma sarà necessario gestire i dizionari manualmente._
 
 ## Impostazioni
 Nella schermata delle impostazioni, puoi scegliere le lingue per la digitazione, configurare i tasti rapidi del tastierino, cambiare l'aspetto dell'applicazione o migliorare la compatibilità con il telefono.
@@ -38,14 +38,14 @@ Nella schermata delle impostazioni, puoi scegliere le lingue per la digitazione,
 ### Come accedere alle Impostazioni?
 
 #### Metodo 1
-Clicca sull'icona di avvio di Traditional T9.
+Clicca sull'icona di avvio di Keypad9.
 
 #### Metodo 2 (usando un touchscreen)
-- Tocca un campo di testo o numero per attivare TT9.
+- Tocca un campo di testo o numero per attivare Keypad9.
 - Usa il pulsante a forma di ingranaggio su schermo.
 
 #### Metodo 3 (usando una tastiera fisica)
-- Inizia a digitare in un campo di testo o numero per attivare TT9.
+- Inizia a digitare in un campo di testo o numero per attivare Keypad9.
 - Apri l'elenco dei comandi utilizzando il pulsante degli strumenti su schermo o premendo il tasto assegnato [Predefinito: Tenere premuto ✱].
 - Premi il tasto 2.
 
@@ -78,7 +78,7 @@ Per cancellare tutto, indipendentemente dalla selezione, usa "Cancella Tutto".
 In tutti i casi, le parole aggiunte personalizzate verranno conservate e ripristinate una volta ricaricato il dizionario.
 
 #### Parole Aggiunte
-L’opzione "Esporta" consente di creare un file CSV con tutte le parole aggiunte per tutte le lingue. Successivamente, puoi utilizzare il file CSV per migliorare Traditional T9! Vai su GitHub e condividi le parole in una [nuova issue](https://github.com/sspanak/tt9/issues) o una [pull request](https://github.com/sspanak/tt9/pulls). Dopo la revisione e l’approvazione, saranno incluse nella prossima versione.
+L’opzione "Esporta" consente di creare un file CSV con tutte le parole aggiunte per tutte le lingue. Successivamente, puoi utilizzare il file CSV per migliorare Keypad9! Vai su GitHub e condividi le parole in una [nuova issue](https://github.com/sspanak/tt9/issues) o una [pull request](https://github.com/sspanak/tt9/pulls). Dopo la revisione e l’approvazione, saranno incluse nella prossima versione.
 
 Con "Importa", puoi importare un CSV precedentemente esportato. Tuttavia, ci sono alcune restrizioni:
 - È possibile importare solo parole composte da lettere. Apostrofi, trattini, altri segni di punteggiatura o caratteri speciali non sono ammessi.
@@ -119,7 +119,7 @@ Cancella il filtro di suggerimento, se applicato.
 - Quando sono visualizzati i suggerimenti, digita il suggerimento attualmente selezionato.
 - Altrimenti, esegue l'azione predefinita per l'applicazione corrente (ad esempio invia un messaggio, vai a un URL o digita una nuova riga).
 
-_**Nota:** Ogni applicazione decide autonomamente cosa fare quando si preme OK e TT9 non ha alcun controllo su questo._
+_**Nota:** Ogni applicazione decide autonomamente cosa fare quando si preme OK e Keypad9 non ha alcun controllo su questo._
 
 _**Nota 2:** Per inviare messaggi con OK nelle applicazioni di messaggistica, è necessario abilitare l'impostazione "Invia con INVIO" o una simile. Se l'applicazione non dispone di questa impostazione, probabilmente non supporta l'invio dei messaggi in questo modo. In tal caso, utilizzare l'app KeyMapper dal [Play Store](https://play.google.com/store/apps/details?id=io.github.sds100.keymapper) o da [F-droid](https://f-droid.org/packages/io.github.sds100.keymapper/). KeyMapper può rilevare le app di chat e simulare un tocco sul pulsante di invio del messaggio premendo o tenendo premuto un tasto fisico. Consultare la [guida rapida](https://docs.keymapper.club/quick-start/) per ulteriori informazioni._
 
@@ -202,7 +202,7 @@ Apre la schermata di configurazione Impostazioni. Qui è possibile scegliere le 
 #### Tasto Annulla:
 Annulla l’ultima azione. Equivale a premere Ctrl+Z su un computer o Cmd+Z su un Mac.
 
-_La cronologia delle azioni annullate è gestita dalle app, non da Traditional T9. Ciò significa che l’annullamento potrebbe non essere disponibile in tutte le app._
+_La cronologia delle azioni annullate è gestita dalle app, non da Keypad9. Ciò significa che l’annullamento potrebbe non essere disponibile in tutte le app._
 
 #### Tasto Ripristina:
 Ripete l’ultima azione annullata. Equivale a premere Ctrl+Y o Ctrl+Shift+Z su un computer o Cmd+Y su un Mac.
@@ -215,7 +215,7 @@ Attiva l'input vocale sui telefoni che lo supportano. Vedere [sotto](#input-voca
 #### Tasto Elenco Comandi / aka Tavolozza Comandi / (Default: tenere premuto ✱):
 Mostra un elenco di tutti i comandi (o funzioni).
 
-Molti telefoni hanno solo due o tre pulsanti "liberi" che possono essere usati come tasti rapidi. Tuttavia, Traditional T9 ha molte più funzioni, il che significa che semplicemente non c’è spazio per tutte sul tastierino. La Tavolozza Comandi risolve questo problema. Permette di invocare le funzioni aggiuntive (o comandi) usando combinazioni di tasti.
+Molti telefoni hanno solo due o tre pulsanti "liberi" che possono essere usati come tasti rapidi. Tuttavia, Keypad9 ha molte più funzioni, il che significa che semplicemente non c’è spazio per tutte sul tastierino. La Tavolozza Comandi risolve questo problema. Permette di invocare le funzioni aggiuntive (o comandi) usando combinazioni di tasti.
 
 Di seguito è riportato un elenco dei comandi possibili:
 - **Mostra la schermata delle impostazioni (Combinazione predefinita: tenere premuto ✱, tasto 1).** Uguale a premere [Mostra Impostazioni](#tasto-mostra-impostazioni).
@@ -258,7 +258,7 @@ Nella versione Google Play, questi tasti possono essere personalizzati. È possi
 #### Tasto modalità di input
 - **Pressione:** Scorre le modalità di input (abc → Predittivo → 123).
 - **Pressione prolungata:** Cambia la lingua di digitazione quando sono abilitate più lingue dalle Impostazioni.
-- **Scorrimento orizzontale:** Passa all’ultima tastiera utilizzata diversa da TT9.
+- **Scorrimento orizzontale:** Passa all’ultima tastiera utilizzata diversa da Keypad9.
 - **Scorrimento verticale:** Apre la finestra di dialogo Android per il cambio tastiera, consentendo di selezionare tra tutte le tastiere installate.
 
 Il tasto mostra una piccola icona a forma di globo quando sono state abilitate più lingue da Impostazioni → Lingue. L’icona indica che è possibile cambiare lingua tenendo premuto il tasto.
@@ -299,14 +299,14 @@ A volte potresti trovare che il Tastierino Virtuale occupi troppo spazio, impede
 
 _Il ridimensionamento tramite doppio tocco è disattivato per impostazione predefinita. È possibile abilitarlo in: Impostazioni → Aspetto._
 
-_Ridimensionare Traditional T9 ridimensiona anche l'applicazione corrente, ma questa operazione è molto impegnativa. Potrebbe causare sfarfallii o rallentamenti su molti telefoni, anche di fascia alta._
+_Ridimensionare Keypad9 ridimensiona anche l'applicazione corrente, ma questa operazione è molto impegnativa. Potrebbe causare sfarfallii o rallentamenti su molti telefoni, anche di fascia alta._
 
 ### Modificare l'Altezza dei Tasti
 È anche possibile modificare l'altezza dei tasti su schermo. Vai su Impostazioni → Aspetto → Altezza Tasti su Schermo e regolala come desideri.
 
 L’impostazione predefinita di 100% offre un buon equilibrio tra dimensioni dei tasti e spazio sullo schermo occupato. Se hai dita grandi, puoi aumentarla leggermente, mentre su uno schermo più grande, come un tablet, potresti ridurla.
 
-_Se lo spazio disponibile sullo schermo è limitato, TT9 ignorerà questa impostazione e ridurrà automaticamente l’altezza, per lasciare spazio all'applicazione corrente._
+_Se lo spazio disponibile sullo schermo è limitato, Keypad9 ignorerà questa impostazione e ridurrà automaticamente l’altezza, per lasciare spazio all'applicazione corrente._
 
 ## Strumenti degli appunti
 Dal pannello degli strumenti degli appunti puoi selezionare, tagliare, copiare e incollare testo, come su una tastiera del computer. Per uscire dal pannello degli appunti, premi il tasto "✱" o il tasto Indietro (eccetto nei browser, in Spotify e in altre applicazioni). In alternativa, premi un tasto lettera sulla tastiera su schermo.
@@ -325,15 +325,15 @@ Di seguito è riportato un elenco dei possibili comandi di testo:
 Per facilitare la modifica, sono attivi anche i tasti backspace, spazio e OK.
 
 ## Input vocale
-L’inserimento vocale consente di convertire il parlato in testo, in modo simile a Gboard. Come le altre tastiere, Traditional T9 non esegue il riconoscimento vocale direttamente, ma si affida ai servizi di inserimento vocale di Android.
+L’inserimento vocale consente di convertire il parlato in testo, in modo simile a Gboard. Come le altre tastiere, Keypad9 non esegue il riconoscimento vocale direttamente, ma si affida ai servizi di inserimento vocale di Android.
 
 _Il pulsante di inserimento vocale sullo schermo è nascosto sui dispositivi che non supportano questa funzione._
 
 
 ### Dispositivi con servizi Google
-Nei dispositivi con i Servizi Google, TT9 utilizza l’infrastruttura di Google per convertire la voce in testo. Su Android 12 o versioni precedenti, è necessario essere connessi a una rete Wi-Fi o attivare i dati mobili affinché funzioni. Su Android 13 o versioni successive, TT9 può eseguire il riconoscimento vocale sia online che offline utilizzando i pacchetti lingua del dispositivo. Per l’uso offline, assicurati di scaricare tutte le lingue desiderate da: Impostazioni Android → Sistema → Riconoscimento sul dispositivo → Aggiungi una lingua.
+Nei dispositivi con i Servizi Google, Keypad9 utilizza l’infrastruttura di Google per convertire la voce in testo. Su Android 12 o versioni precedenti, è necessario essere connessi a una rete Wi-Fi o attivare i dati mobili affinché funzioni. Su Android 13 o versioni successive, Keypad9 può eseguire il riconoscimento vocale sia online che offline utilizzando i pacchetti lingua del dispositivo. Per l’uso offline, assicurati di scaricare tutte le lingue desiderate da: Impostazioni Android → Sistema → Riconoscimento sul dispositivo → Aggiungi una lingua.
 
-_I pacchetti installati per Google Voice, altri assistenti vocali o tastiere potrebbero non funzionare con Traditional T9. È consigliato installare i pacchetti globali dallo schermo "Riconoscimento sul dispositivo"._
+_I pacchetti installati per Google Voice, altri assistenti vocali o tastiere potrebbero non funzionare con Keypad9. È consigliato installare i pacchetti globali dallo schermo "Riconoscimento sul dispositivo"._
 
 ### Dispositivi senza servizi Google
 Per utilizzare il riconoscimento vocale di Google su dispositivi senza servizi Google:
@@ -342,15 +342,15 @@ Per utilizzare il riconoscimento vocale di Google su dispositivi senza servizi G
    - **Android Go:** Google Go (_com.<wbr>google.<wbr>android.<wbr>apps.<wbr>searchlite_)
    - **Android standard:** Google (_com.<wbr>google.<wbr>android.<wbr>googlequicksearchbox_)
 2. Concedere manualmente i permessi per microfono e Internet all’app Google o Google Go.
-3. Concedere il permesso del microfono a TT9.
+3. Concedere il permesso del microfono a Keypad9.
 
 _Alcuni dispositivi potrebbero richiedere un riavvio per completare la configurazione, anche se non viene richiesto._
 
 ### Utilizzo di alternative di inserimento vocale non Google
-TT9 supporta anche metodi di inserimento vocale non Google, come Futo Voice o Sayboard. Se sono disponibili più metodi, TT9 chiederà di sceglierne uno. Se è installato solo un metodo non Google, verrà utilizzato automaticamente.
+Keypad9 supporta anche metodi di inserimento vocale non Google, come Futo Voice o Sayboard. Se sono disponibili più metodi, Keypad9 chiederà di sceglierne uno. Se è installato solo un metodo non Google, verrà utilizzato automaticamente.
 
 ## Risoluzione dei problemi
-Per alcune applicazioni o dispositivi, è possibile abilitare opzioni speciali, che miglioreranno la compatibilità con Traditional T9. Puoi trovarle alla fine di ciascuna schermata di impostazioni, nella sezione Compatibilità.
+Per alcune applicazioni o dispositivi, è possibile abilitare opzioni speciali, che miglioreranno la compatibilità con Keypad9. Puoi trovarle alla fine di ciascuna schermata di impostazioni, nella sezione Compatibilità.
 
 ### Metodo Alternativo di Scorrimento dei Suggerimenti
 _In: Impostazioni → Aspetto._
@@ -360,12 +360,12 @@ Su alcuni dispositivi, in Modalità Predittiva, potrebbe non essere possibile sc
 ### Sempre in Primo Piano
 _In: Impostazioni → Aspetto._
 
-Su alcuni telefoni, in particolare Sonim XP3plus (XP3900), Traditional T9 potrebbe non apparire quando inizi a digitare, oppure potrebbe essere parzialmente coperto dai tasti software. In altri casi, potrebbero apparire delle barre bianche attorno alla tastiera. Il problema può verificarsi in un'applicazione specifica o in tutte. Per evitarlo, abilita l'opzione "Sempre in Primo Piano".
+Su alcuni telefoni, in particolare Sonim XP3plus (XP3900), Keypad9 potrebbe non apparire quando inizi a digitare, oppure potrebbe essere parzialmente coperto dai tasti software. In altri casi, potrebbero apparire delle barre bianche attorno alla tastiera. Il problema può verificarsi in un'applicazione specifica o in tutte. Per evitarlo, abilita l'opzione "Sempre in Primo Piano".
 
 ### Spazio inferiore (orientamento verticale)
 _In: Impostazioni → Aspetto._
 
-Sui dispositivi Samsung con Android 15 o versioni successive, Traditional T9 potrebbe apparire troppo in basso sullo schermo. In tal caso, la barra di navigazione di sistema copre l’ultima riga della tastiera, rendendo i tasti inutilizzabili. Qualsiasi tentativo di digitare uno spazio, premere OK o cambiare la modalità di input provoca la chiusura della tastiera. Aumentare lo «Spazio inferiore» a 48 dp risolve il problema.
+Sui dispositivi Samsung con Android 15 o versioni successive, Keypad9 potrebbe apparire troppo in basso sullo schermo. In tal caso, la barra di navigazione di sistema copre l’ultima riga della tastiera, rendendo i tasti inutilizzabili. Qualsiasi tentativo di digitare uno spazio, premere OK o cambiare la modalità di input provoca la chiusura della tastiera. Aumentare lo «Spazio inferiore» a 48 dp risolve il problema.
 
 In altri casi, può comparire uno spazio vuoto non necessario sotto il blocco dei tasti. Riducendo lo «Spazio inferiore» a 0 dp tale spazio viene eliminato.
 
@@ -380,7 +380,7 @@ I telefoni CAT S22 Flip e Qin F21 sono noti per i loro tastierini di bassa quali
 
 Per i telefoni CAT, l'impostazione consigliata è di 50-75 ms. Per Qin F21, prova con 20-30 ms. Se il problema persiste, aumenta il valore leggermente, ma cerca di mantenerlo il più basso possibile.
 
-_**Nota:** Più alto è il valore impostato, più lentamente dovrai digitare. TT9 ignorerà le pressioni dei tasti molto rapide._
+_**Nota:** Più alto è il valore impostato, più lentamente dovrai digitare. Keypad9 ignorerà le pressioni dei tasti molto rapide._
 
 _**Nota 2:** Oltre a ciò, i telefoni Qin potrebbero non rilevare le pressioni prolungate dei tasti. Sfortunatamente, in questo caso non c'è nulla che si possa fare._
 
@@ -389,7 +389,7 @@ _In: Impostazioni → Tastierino._
 
 Se hai problemi a digitare su Deezer o Smouldering Durtles perché i suggerimenti scompaiono rapidamente prima che tu possa vederli, disattiva questa opzione. Questo farà sì che la parola attuale rimanga nascosta fino a quando non premi OK o Spazio, o fino a quando non tocchi la lista dei suggerimenti.
 
-Il problema si verifica perché Deezer e Smouldering Durtles a volte modificano il testo che digiti, causando un malfunzionamento di TT9.
+Il problema si verifica perché Deezer e Smouldering Durtles a volte modificano il testo che digiti, causando un malfunzionamento di Keypad9.
 
 ### I pannelli degli sticker ed emoji su Telegram/Snapchat non si aprono
 Questo accade se stai utilizzando uno dei layout di dimensioni ridotte. Al momento, non esiste una soluzione definitiva, ma puoi utilizzare la seguente procedura temporanea:
@@ -397,39 +397,39 @@ Questo accade se stai utilizzando uno dei layout di dimensioni ridotte. Al momen
 - Torna alla chat e clicca sul pulsante emoji o sticker. Ora appariranno.
 - Puoi ora tornare alle impostazioni e disabilitare il tastierino su schermo. I pannelli degli emoji e degli sticker rimarranno accessibili fino a quando non riavvii l'app o il telefono.
 
-### Traditional T9 non appare immediatamente in alcune applicazioni (solo per telefoni senza touchscreen)
-Se hai aperto un'applicazione in cui puoi scrivere, ma TT9 non appare automaticamente, inizia semplicemente a digitare e apparirà. In alternativa, premere i tasti di scelta rapida per cambiare [la modalità di input](#tasto-modalità-di-input-successiva-default-premere) o [la lingua](#tasto-lingua-successiva-default-tenere-premuto) può anche far apparire TT9, quando è nascosto.
+### Keypad9 non appare immediatamente in alcune applicazioni (solo per telefoni senza touchscreen)
+Se hai aperto un'applicazione in cui puoi scrivere, ma Keypad9 non appare automaticamente, inizia semplicemente a digitare e apparirà. In alternativa, premere i tasti di scelta rapida per cambiare [la modalità di input](#tasto-modalità-di-input-successiva-default-premere) o [la lingua](#tasto-lingua-successiva-default-tenere-premuto) può anche far apparire Keypad9, quando è nascosto.
 
-Su alcuni dispositivi, TT9 potrebbe rimanere invisibile, indipendentemente da ciò che fai. In questi casi, devi abilitare [Sempre in Primo Piano](#sempre-in-primo-piano).
+Su alcuni dispositivi, Keypad9 potrebbe rimanere invisibile, indipendentemente da ciò che fai. In questi casi, devi abilitare [Sempre in Primo Piano](#sempre-in-primo-piano).
 
-**Spiegazione lunga.** Il motivo di questo problema è che Android è progettato principalmente per dispositivi touchscreen. Di conseguenza, si aspetta che tu tocchi il campo di testo/numero per mostrare la tastiera. È possibile far apparire TT9 senza questa conferma, ma poi, in alcuni casi, Android dimentica di nasconderlo quando dovrebbe. Ad esempio, potrebbe rimanere visibile dopo aver composto un numero di telefono o dopo aver inviato testo in un campo di ricerca.
+**Spiegazione lunga.** Il motivo di questo problema è che Android è progettato principalmente per dispositivi touchscreen. Di conseguenza, si aspetta che tu tocchi il campo di testo/numero per mostrare la tastiera. È possibile far apparire Keypad9 senza questa conferma, ma poi, in alcuni casi, Android dimentica di nasconderlo quando dovrebbe. Ad esempio, potrebbe rimanere visibile dopo aver composto un numero di telefono o dopo aver inviato testo in un campo di ricerca.
 
 Per questi motivi, per seguire gli standard attesi di Android, il controllo è nelle tue mani. Basta premere un tasto per "toccare" lo schermo e continuare a digitare.
 
 ### Sul Qin F21 Pro, tenendo premuto il tasto 2 o il tasto 8 si alza o abbassa il volume invece di digitare un numero
-Per attenuare questo problema, vai su Impostazioni → Aspetto e abilita "Icona di Stato". TT9 dovrebbe rilevare il Qin F21 e abilitare le impostazioni automaticamente, ma in caso di fallimento del rilevamento automatico, o se hai disabilitato l'icona per qualche motivo, devi attivarla per consentire il corretto funzionamento di tutti i tasti.
+Per attenuare questo problema, vai su Impostazioni → Aspetto e abilita "Icona di Stato". Keypad9 dovrebbe rilevare il Qin F21 e abilitare le impostazioni automaticamente, ma in caso di fallimento del rilevamento automatico, o se hai disabilitato l'icona per qualche motivo, devi attivarla per consentire il corretto funzionamento di tutti i tasti.
 
-**Spiegazione lunga.** Il Qin F21 Pro (e possibilmente anche il F22) ha un'applicazione di tasti rapidi che consente di assegnare le funzioni Volume Su e Volume Giù ai tasti numerici. Di default, il gestore dei tasti rapidi è abilitato, e tenendo premuto il tasto 2 il volume aumenta, mentre tenendo premuto l'8 il volume diminuisce. Tuttavia, quando non c'è un'icona di stato, il gestore presuppone che non sia attiva alcuna tastiera e regola il volume, anziché lasciare che Traditional T9 gestisca il tasto e digiti un numero. Quindi, abilitare l'icona bypassa semplicemente il gestore dei tasti rapidi e tutto funziona correttamente.
+**Spiegazione lunga.** Il Qin F21 Pro (e possibilmente anche il F22) ha un'applicazione di tasti rapidi che consente di assegnare le funzioni Volume Su e Volume Giù ai tasti numerici. Di default, il gestore dei tasti rapidi è abilitato, e tenendo premuto il tasto 2 il volume aumenta, mentre tenendo premuto l'8 il volume diminuisce. Tuttavia, quando non c'è un'icona di stato, il gestore presuppone che non sia attiva alcuna tastiera e regola il volume, anziché lasciare che Keypad9 gestisca il tasto e digiti un numero. Quindi, abilitare l'icona bypassa semplicemente il gestore dei tasti rapidi e tutto funziona correttamente.
 
 ### Problemi generali sui telefoni Xiaomi
-Xiaomi ha introdotto diverse autorizzazioni non standard sui loro telefoni, che impediscono il corretto funzionamento della tastiera virtuale su schermo di Traditional T9. Più precisamente, i tasti "Mostra Impostazioni" e "Aggiungi Parola" potrebbero non svolgere le rispettive funzioni. Per risolvere questo problema, devi concedere a TT9 i permessi di "Visualizza finestra pop-up" e "Visualizza finestra pop-up in esecuzione in background" dalle impostazioni del telefono. [Questa guida](https://parental-control.flashget.com/how-to-enable-display-pop-up-windows-while-running-in-the-background-on-flashget-kids-on-xiaomi) per un'altra applicazione spiega come fare.
+Xiaomi ha introdotto diverse autorizzazioni non standard sui loro telefoni, che impediscono il corretto funzionamento della tastiera virtuale su schermo di Keypad9. Più precisamente, i tasti "Mostra Impostazioni" e "Aggiungi Parola" potrebbero non svolgere le rispettive funzioni. Per risolvere questo problema, devi concedere a Keypad9 i permessi di "Visualizza finestra pop-up" e "Visualizza finestra pop-up in esecuzione in background" dalle impostazioni del telefono. [Questa guida](https://parental-control.flashget.com/how-to-enable-display-pop-up-windows-while-running-in-the-background-on-flashget-kids-on-xiaomi) per un'altra applicazione spiega come fare.
 
 È anche altamente raccomandato concedere l'autorizzazione per la "Notifica permanente". Questa è simile all'autorizzazione per le "Notifiche" introdotta in Android 13. Vedi [sopra](#note-per-android-13-o-versioni-successive) per ulteriori informazioni sul motivo per cui è necessaria.
 
 _I problemi di Xiaomi sono stati discussi in [questa issue su GitHub](https://github.com/sspanak/tt9/issues/490)._
 
 ### L'Input Vocale impiega molto tempo per fermarsi
-È [un problema noto](https://issuetracker.google.com/issues/158198432) su Android 10 che Google non ha mai risolto. Non è possibile attenuarlo dal lato TT9. Per fermare l'operazione di Input Vocale, resta in silenzio per qualche secondo. Android spegne il microfono automaticamente quando non rileva alcun suono.
+È [un problema noto](https://issuetracker.google.com/issues/158198432) su Android 10 che Google non ha mai risolto. Non è possibile attenuarlo dal lato Keypad9. Per fermare l'operazione di Input Vocale, resta in silenzio per qualche secondo. Android spegne il microfono automaticamente quando non rileva alcun suono.
 
-### La mia app bancaria non accetta Traditional T9
-Ciò non rappresenta un problema di TT9. Le banche spesso limitano l’uso di tastiere non standard o open source, poiché non intendono correre rischi e presumono che tali tastiere possano essere insicure. Alcuni istituti forniscono persino un proprio tastierino, arrivando a bloccare la tastiera standard di Google, Gboard. In questo caso, purtroppo, l’unica soluzione consiste nell’utilizzare la tastiera originale del dispositivo.
+### La mia app bancaria non accetta Keypad9
+Ciò non rappresenta un problema di Keypad9. Le banche spesso limitano l’uso di tastiere non standard o open source, poiché non intendono correre rischi e presumono che tali tastiere possano essere insicure. Alcuni istituti forniscono persino un proprio tastierino, arrivando a bloccare la tastiera standard di Google, Gboard. In questo caso, purtroppo, l’unica soluzione consiste nell’utilizzare la tastiera originale del dispositivo.
 
 ### La vibrazione non funziona (solo per dispositivi touchscreen)
-Le opzioni di risparmio energetico, ottimizzazione e la funzione "Non disturbare" possono impedire la vibrazione. Controlla nelle Impostazioni di sistema del tuo dispositivo se una di queste opzioni è attivata. Su alcuni dispositivi, è possibile configurare l'ottimizzazione della batteria per ogni singola applicazione da Impostazioni di sistema → Applicazioni. Se il tuo dispositivo lo consente, disattiva l'ottimizzazione per TT9.
+Le opzioni di risparmio energetico, ottimizzazione e la funzione "Non disturbare" possono impedire la vibrazione. Controlla nelle Impostazioni di sistema del tuo dispositivo se una di queste opzioni è attivata. Su alcuni dispositivi, è possibile configurare l'ottimizzazione della batteria per ogni singola applicazione da Impostazioni di sistema → Applicazioni. Se il tuo dispositivo lo consente, disattiva l'ottimizzazione per Keypad9.
 
 Un altro motivo per cui la vibrazione potrebbe non funzionare è che potrebbe essere disabilitata a livello di sistema. Controlla se il tuo dispositivo ha le opzioni "Vibrazione al tocco" o "Vibrazione alla pressione dei tasti" in Impostazioni di sistema → Accessibilità e attivale. I dispositivi Xiaomi e OnePlus offrono un controllo della vibrazione ancora più dettagliato. Assicurati che tutte le impostazioni pertinenti siano attivate.
 
-Infine, la vibrazione non funziona in modo affidabile su alcuni dispositivi. Per risolvere il problema, sarebbero necessarie autorizzazioni aggiuntive e l’accesso a più funzioni del dispositivo. Tuttavia, poiché TT9 è una tastiera che mette la privacy al primo posto, non richiederà tali accessi.
+Infine, la vibrazione non funziona in modo affidabile su alcuni dispositivi. Per risolvere il problema, sarebbero necessarie autorizzazioni aggiuntive e l’accesso a più funzioni del dispositivo. Tuttavia, poiché Keypad9 è una tastiera che mette la privacy al primo posto, non richiederà tali accessi.
 
 ## Domande Frequenti
 
@@ -449,12 +449,12 @@ No.
 
 Ognuno ha le proprie preferenze. Alcuni vogliono tasti più grandi, altri in un ordine diverso, alcuni vogliono un tasto di scelta rapida per digitare ".com" e altri sentono la mancanza del loro vecchio telefono o tastiera. Ma per favore, capisci che sto lavorando a questo progetto nel mio tempo libero e su base volontaria. È impossibile soddisfare migliaia di richieste diverse, alcune delle quali si contraddicono tra loro.
 
-Henry Ford una volta disse: "Il cliente può avere l'auto di qualsiasi colore desideri, purché sia nera." Allo stesso modo, Traditional T9 è essenziale, efficace e gratuito, ma quello che vedi è quello che ottieni.
+Henry Ford una volta disse: "Il cliente può avere l'auto di qualsiasi colore desideri, purché sia nera." Allo stesso modo, Keypad9 è essenziale, efficace e gratuito, ma quello che vedi è quello che ottieni.
 
 ### Non potete renderlo più simile al mio dispositivo preferito (ad esempio Sony Ericsson, Xperia, Nokia C2, Samsung) o alla mia app di tastiera preferita?
 No.
 
-Traditional T9 non è pensato per essere un sostituto o un'app clone. Ha un design unico, ispirato principalmente al Nokia 3310 e 6303i. E sebbene catturi l'essenza dei classici, offre un'esperienza propria che non replica esattamente nessun dispositivo.
+Keypad9 non è pensato per essere un sostituto o un'app clone. Ha un design unico, ispirato principalmente al Nokia 3310 e 6303i. E sebbene catturi l'essenza dei classici, offre un'esperienza propria che non replica esattamente nessun dispositivo.
 
 ### Dovreste copiare TouchPal; era la migliore tastiera!
 No. Vedere i punti precedenti.
@@ -463,23 +463,23 @@ TouchPal era una tastiera veloce e reattiva, con ampie possibilità di temi, per
 
 Con il tempo, ha iniziato a perdere l’attenzione sull’aspetto più importante: la digitazione. Sono stati introdotti annunci pubblicitari, le richieste di autorizzazioni sono diventate aggressive e ha iniziato a raccogliere dati sensibili degli utenti. Alla fine, è stata rimossa dal Play Store.
 
-Al contrario, la [filosofia](https://github.com/sspanak/tt9/?tab=readme-ov-file#-philosophy) di TT9 si basa sui principi dell’open source. Il codice sorgente e i dizionari sono disponibili pubblicamente e possono essere esaminati. La privacy degli utenti è rispettata fin dalla progettazione. I contributi della comunità hanno migliorato il progetto, includendo correzioni di bug, nuove lingue e traduzioni. Gli utenti possono inoltre creare le proprie versioni modificate.
+Al contrario, la [filosofia](https://github.com/sspanak/tt9/?tab=readme-ov-file#-philosophy) di Keypad9 si basa sui principi dell’open source. Il codice sorgente e i dizionari sono disponibili pubblicamente e possono essere esaminati. La privacy degli utenti è rispettata fin dalla progettazione. I contributi della comunità hanno migliorato il progetto, includendo correzioni di bug, nuove lingue e traduzioni. Gli utenti possono inoltre creare le proprie versioni modificate.
 
-TT9 non offre funzionalità come forme dei tasti personalizzabili, ma propone un layout pulito e leggibile, focalizzato su una digitazione efficiente. Non replica lo stile visivo di TouchPal, ma funziona su smartphone moderni con Android 16, su dispositivi con tastiera fisica di ispirazione nostalgica come Qin F21, Cat S22 Flip e Sonim XP3800, e persino su telecomandi TV.
+Keypad9 non offre funzionalità come forme dei tasti personalizzabili, ma propone un layout pulito e leggibile, focalizzato su una digitazione efficiente. Non replica lo stile visivo di TouchPal, ma funziona su smartphone moderni con Android 16, su dispositivi con tastiera fisica di ispirazione nostalgica come Qin F21, Cat S22 Flip e Sonim XP3800, e persino su telecomandi TV.
 
 Se non sei d’accordo o desideri spiegare il tuo punto di vista, partecipa alla [discussione aperta](https://github.com/sspanak/tt9/issues/647) su GitHub. Ricorda di mantenere un atteggiamento rispettoso. I messaggi d’odio non saranno tollerati.
 
 ### Android mi ha avvisato che la tastiera potrebbe raccogliere i miei dati personali, inclusi numeri di carte di credito e password
-Si tratta di un avviso standard di Android che viene mostrato quando si installa e si attiva qualsiasi tastiera, non soltanto Traditional T9. Può essere certo che tutto ciò che digita rimane sul dispositivo. Il motore di digitazione è completamente open source; è quindi possibile esaminarne il codice su GitHub e verificare che la privacy sia adeguatamente tutelata.
+Si tratta di un avviso standard di Android che viene mostrato quando si installa e si attiva qualsiasi tastiera, non soltanto Keypad9. Può essere certo che tutto ciò che digita rimane sul dispositivo. Il motore di digitazione è completamente open source; è quindi possibile esaminarne il codice su GitHub e verificare che la privacy sia adeguatamente tutelata.
 
 _Qualora avesse ulteriori dubbi, La invitiamo a consultare l’Informativa sulla Privacy dell’app._
 
 ### Ho bisogno di usare un layout QWERTY (solo dispositivi touchscreen)
-Traditional T9 è una tastiera T9 e, in quanto tale, non fornisce un layout simile al QWERTY.
+Keypad9 è una tastiera T9 e, in quanto tale, non fornisce un layout simile al QWERTY.
 
 Se stai ancora imparando a usare T9 e hai bisogno di tornare indietro occasionalmente, oppure trovi più conveniente digitare nuove parole usando QWERTY, scorri verso l'alto il tasto modalità di input per passare a una tastiera diversa. Vedi [panoramica dei tasti virtuali](#panoramica-dei-tasti-virtuali) per ulteriori informazioni.
 
-La maggior parte delle altre tastiere permette di tornare a Traditional T9 tenendo premuta la barra spaziatrice o il tasto "cambia lingua". Controlla il rispettivo manuale per ulteriori informazioni.
+La maggior parte delle altre tastiere permette di tornare a Keypad9 tenendo premuta la barra spaziatrice o il tasto "cambia lingua". Controlla il rispettivo manuale per ulteriori informazioni.
 
 ### Non riesco a cambiare lingua su un telefono touchscreen
 Innanzitutto, assicurati di aver abilitato tutte le lingue desiderate in Impostazioni → Lingue. Poi tieni premuto il [tasto modalità di input](#tasto-modalità-di-input) per cambiare lingua.

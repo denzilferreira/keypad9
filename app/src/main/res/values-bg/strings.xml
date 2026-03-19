@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_settings">Настройки на TT9</string>
+	<string name="app_settings">Настройки на Keypad9</string>
 	<string name="pref_font_size_large">Голям</string>
 	<string name="completed">Завършено</string>
 	<string name="loading">Зареждане…</string>
@@ -112,7 +112,7 @@
 	<string name="setup_default_keyboard">Избор на клавиатура по подразбиране</string>
 	<string name="setup_tt9_on">%1$s е активен</string>
 	<string name="setup_tt9_off">%1$s е изключен</string>
-	<string name="setup_click_here_to_enable">Натиснете тук, за да включите TT9 от настройките на Андроид.</string>
+	<string name="setup_click_here_to_enable">Натиснете тук, за да включите Keypad9 от настройките на Андроид.</string>
 	<string name="setup_spell_checker">Системна проверка на правописа</string>
 	<string name="setup_spell_checker_on">Системната проверка на правописа подчертава текста в червено и може да попречи на добавянето на нови думи. Докоснете, за да изключите.</string>
 	<string name="setup_spell_checker_off">Изключена</string>

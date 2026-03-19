@@ -1,6 +1,6 @@
-# Traditional T9 ![GitHub Downloads (latest release)](https://img.shields.io/github/downloads/sspanak/tt9/latest/total)
+# Keypad9 ![GitHub Downloads (latest release)](https://img.shields.io/github/downloads/sspanak/tt9/latest/total)
 
-TT9 is a Nokia-style 12-key T9 keyboard for Android. It provides predictive text input in [40+ languages](app/languages/definitions), configurable hotkeys, clipboard, undo/redo, and extensive customization. It works on touchscreens, physical keypads, and TV remote controls. And best of all, it [doesn't spy](docs/privacy.md) on you!
+Keypad9 is a Nokia-style 12-key T9 keyboard for Android. It provides predictive text input in [40+ languages](app/languages/definitions), configurable hotkeys, clipboard, undo/redo, and extensive customization. It works on touchscreens, physical keypads, and TV remote controls. And best of all, it [doesn't spy](docs/privacy.md) on you!
 
 This is a modernized version of the [original project](https://github.com/Clam-/TraditionalT9) by Clam-.
 
@@ -41,9 +41,9 @@ _If your phone does not have Google Play and does not allow installing custom AP
 _Storage usage for the dictionaries depends on the word root count and the average word length in each language. Some languages will require more space, even if they have fewer words than others._
 
 ### ⚠️ Compatibility
-If you own a phone with Android 4.4, the latest TT9 version you can use is [v44.0](https://github.com/sspanak/tt9/releases/tag/v44.0). On devices with Android 4.3 or earlier, please refer to the original Traditional T9 from 2016.
+If you own a phone with Android 4.4, the latest Keypad9 version you can use is [v44.0](https://github.com/sspanak/tt9/releases/tag/v44.0). On devices with Android 4.3 or earlier, please refer to the original Traditional T9 from 2016.
 
-TT9 may not work well on TCL Flip 2, Kyocera phones, especially ones running Android 10 or newer, or other devices that run highly customized Android versions, where all apps are integrated and intended to work with the respective native keyboard. You may experience missing functionality, empty gaps/misaligned items on the screen, or unexpected text/numbers appearing when you try to type.
+Keypad9 may not work well on TCL Flip 2, Kyocera phones, especially ones running Android 10 or newer, or other devices that run highly customized Android versions, where all apps are integrated and intended to work with the respective native keyboard. You may experience missing functionality, empty gaps/misaligned items on the screen, or unexpected text/numbers appearing when you try to type.
 
 Compatibility has been verified only on the following devices:
 - Motorola g05 (Android 15)
@@ -54,15 +54,15 @@ Compatibility has been verified only on the following devices:
 - Sonim XP3800 (Android 8.1)
 - Vodaphone VFD 500 (Android 6.0)
 
-## 🤔 How to Use Traditional T9?
-Before using Traditional T9 for the first time you need to configure it and load a dictionary. After that, you can start typing right away in one of the three modes: Predictive, ABC, or Numeric (123). And even if you have mastered the keypad back in the day, you will still find the Predictive mode now offers more powerful and smart new ways of typing with even fewer key presses.
+## 🤔 How to Use Keypad9?
+Before using Keypad9 for the first time you need to configure it and load a dictionary. After that, you can start typing right away in one of the three modes: Predictive, ABC, or Numeric (123). And even if you have mastered the keypad back in the day, you will still find the Predictive mode now offers more powerful and smart new ways of typing with even fewer key presses.
 
 So make sure to read the initial setup and the hotkey tips in the [user manual](docs/help/help.en.md). Also, don't miss the convenient [compatibility options](docs/help/help.en.md#troubleshooting) aimed to improve the experience in some applications.
 
 _The user manual is also available in: [Brazilian Portuguese](docs/help/help.pt.md), [German](docs/help/help.de.md), [French](docs/help/help.fr.md), [Italian](docs/help/help.it.md), [Russian](docs/help/help.ru.md), [Spanish](docs/help/help.es.md), [Turkish](docs/help/help.tr.md), [Ukrainian](docs/help/help.uk.md)._
 
 ## ⌨ Contributing
-As with many other open-source projects, this one is also maintained by its author in his free time. Any help in making Traditional T9 better will be highly appreciated. Here is how:
+As with many other open-source projects, this one is also maintained by its author in his free time. Any help in making Keypad9 better will be highly appreciated. Here is how:
 - Add [a new language](CONTRIBUTING.md#adding-a-new-language), [new UI translations](CONTRIBUTING.md#translating-the-ui) or simply fix a spelling mistake. The process is very simple and even with minimum technical knowledge, your skills as a native speaker will be of great use. Or, if you are not tech-savvy, just [open a new issue](https://github.com/sspanak/tt9/issues) and put the correct translations or words there. Correcting misspelled words or adding new ones is the best you can do to help. Processing millions of words in multiple languages is a very difficult task for a single person.
 - Share your list of added words. Use the Export function in Settings → Languages → Added Words and upload the generated CSV file in a [new issue](https://github.com/sspanak/tt9/issues). You are also welcome to [open a PR](https://github.com/sspanak/tt9/pulls) if you have good technical knowledge and can split them by language.
 - [Report bugs](https://github.com/sspanak/tt9/issues) or other unusual behavior on different phones. It is only possible to verify correct operation and compatibility on a handful of phones, but Android behavior and appearance vary a lot across the millions of devices available out there.
@@ -71,11 +71,11 @@ As with many other open-source projects, this one is also maintained by its auth
 Your PRs are welcome!
 
 ## 👍 Support
-The best way to support the project is to give it five stars on Google Play. While it may sound trivial, good reviews really motivate me to keep working on it. They also encourage the Play Store to promote TT9 to more people and ultimately help spread the word.
+The best way to support the project is to give it five stars on Google Play. While it may sound trivial, good reviews really motivate me to keep working on it. They also encourage the Play Store to promote Keypad9 to more people and ultimately help spread the word.
 
 You can also give the project a star on GitHub. Higher-ranked projects can access development tools for free and apply for funding more easily.
 
-And if you truly enjoy using TT9, buy me a beer on [Ko-Fi](https://ko-fi.com/sspanak) or [PayPal](https://www.paypal.com/donate/?hosted_button_id=LW97X3JM2CRZC).
+And if you truly enjoy using Keypad9, buy me a beer on [Ko-Fi](https://ko-fi.com/sspanak) or [PayPal](https://www.paypal.com/donate/?hosted_button_id=LW97X3JM2CRZC).
 
 ## 💪 Philosophy
 - No spying, tracking, telemetry, reports, or data collection of any sort.
@@ -84,9 +84,9 @@ And if you truly enjoy using TT9, buy me a beer on [Ko-Fi](https://ko-fi.com/ssp
 - Open-source, permitting you to verify all the above yourself.
 - Created with help from the entire community.
 - Things it will (probably) never have: QWERTY layout, swipe-typing, GIFs, and stickers.
-- Not intended as a clone of TouchPal, Sony Ericsson, KaiOS, Samsung, etc. While it captures the feel of the classics, TT9 offers its own experience and won’t replicate any device or app exactly.
+- Not intended as a clone of TouchPal, Sony Ericsson, KaiOS, Samsung, etc. While it captures the feel of the classics, Keypad9 offers its own experience and won’t replicate any device or app exactly.
 
-Thank you for understanding, and enjoy TT9!
+Thank you for understanding, and enjoy Keypad9!
 
 ## 🕮 License
 - The source code, the logo image, and the icons are licensed under the conditions described in [LICENSE.txt](LICENSE.txt).
