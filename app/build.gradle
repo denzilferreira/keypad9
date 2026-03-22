@@ -82,7 +82,8 @@ def getDonationUrl = { -> new File(FUNDING_FILE)
 		.replaceFirst("^([^:]+)\\s*:\\s*([^\\n]+)", "https://\$1.com/\$2")
 		.replace('_', '-')
 }
-def getVersionString = { flavor -> return "1.0" }
+
+def getVersionString = { flavor -> return "1.0.1" }
 
 
 android {
@@ -94,8 +95,8 @@ android {
 		buildFeatures.buildConfig = true
 		minSdk = 21
 		targetSdk = 36
-		versionCode = 1
-		versionName = "1.0"
+		versionCode = 2
+		versionName = "1.0.1"
 
 		buildConfigField 'String', 'DICTIONARY_EXTENSION', "\"${DICTIONARY_OUTPUT_EXTENSION}\""
 		buildConfigField 'String', 'DOCS_DIR', "\"${DOCS_DIR_NAME}\""
@@ -157,9 +158,7 @@ android {
 		}
 
 		variant.outputs.configureEach {
-			def fullSuffix = variant.flavorName == 'full' ? '-full' : ''
-			def debugSuffix = variant.name.containsIgnoreCase('debug') ? '-debug' : ''
-			outputFileName = "${APP_NAME}-v1.0${fullSuffix}${debugSuffix}.apk"
+			outputFileName = "keypad9-v${versionName}-${variantName}.apk"
 		}
 	}
 }
@@ -167,5 +166,4 @@ android {
 dependencies {
 	implementation 'androidx.preference:preference:1.2.1'
 	implementation 'com.google.android.material:material:1.13.0'
-	premiumImplementation 'com.android.billingclient:billing:8.0.0'
 }
