@@ -96,6 +96,13 @@ class ModeWords extends ModeCheonjiin {
 
 	@Override
 	protected void onNumberPress(int nextNumber) {
+		// For Western languages, pressing 0 with no active digit sequence inserts a space directly.
+		// East Asian languages (CJK) continue to the special character mode.
+		if (nextNumber == Sequences.CHARS_0_KEY && digitSequence.isEmpty() && language.hasSpaceBetweenWords()) {
+			textField.setText(Characters.getSpace(language));
+			return;
+		}
+
 		// In East Asian languages, Spacebar must accept the current word, or type a space when there
 		// is no word. Here, we handle the case when 0-key is Space, and not the Space hotkey in
 		// HotkeyHandler, which could be a different key, assigned by the user.
