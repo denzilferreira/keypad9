@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.function.Consumer;
 
 import io.github.sspanak.tt9.hacks.AppHacks;
 import io.github.sspanak.tt9.hacks.InputType;
@@ -18,14 +19,13 @@ import io.github.sspanak.tt9.preferences.settings.SettingsStore;
 import io.github.sspanak.tt9.ui.main.ResizableMainView;
 import io.github.sspanak.tt9.ui.tray.StatusBar;
 import io.github.sspanak.tt9.ui.tray.SuggestionsBar;
-import io.github.sspanak.tt9.util.ConsumerCompat;
 import io.github.sspanak.tt9.util.Text;
 import io.github.sspanak.tt9.util.chars.Characters;
 import io.github.sspanak.tt9.util.sys.Clipboard;
 
 public class SuggestionOps {
 	@NonNull private final Handler delayedAcceptHandler;
-	@NonNull private final ConsumerCompat<String> onDelayedAccept;
+	@NonNull private final Consumer<String> onDelayedAccept;
 
 	@Nullable protected SuggestionsBar suggestionBar;
 	@Nullable private AppHacks appHacks;
@@ -35,7 +35,7 @@ public class SuggestionOps {
 	@Nullable private StatusBar statusBar;
 
 
-	public SuggestionOps(@Nullable InputMethodService ims, @Nullable SettingsStore settings, @Nullable ResizableMainView mainView, @Nullable AppHacks appHacks, @Nullable InputType inputType, @Nullable TextField textField, @Nullable StatusBar statusBar, @Nullable ConsumerCompat<String> onDelayedAccept, @Nullable Runnable onSuggestionClick) {
+	public SuggestionOps(@Nullable InputMethodService ims, @Nullable SettingsStore settings, @Nullable ResizableMainView mainView, @Nullable AppHacks appHacks, @Nullable InputType inputType, @Nullable TextField textField, @Nullable StatusBar statusBar, @Nullable Consumer<String> onDelayedAccept, @Nullable Runnable onSuggestionClick) {
 		delayedAcceptHandler = new Handler(Looper.getMainLooper());
 		this.onDelayedAccept = onDelayedAccept != null ? onDelayedAccept : s -> {};
 
@@ -71,8 +71,18 @@ public class SuggestionOps {
 	}
 
 
+	public boolean containsOnlyGuesses() {
+		return suggestionBar != null && suggestionBar.containsOnlyGuesses();
+	}
+
+
 	public boolean containsStem() {
 		return suggestionBar != null && suggestionBar.containsStem();
+	}
+
+
+	public boolean containsNoOrdinaryWords() {
+		return isEmpty() || containsOnlyGuesses();
 	}
 
 
@@ -93,25 +103,33 @@ public class SuggestionOps {
 	}
 
 
-	public void set(ArrayList<String> suggestions) {
+	public void addGuesses(@NonNull ArrayList<String> guesses) {
+		setVisibility(settings, isEmpty() && guesses.isEmpty(), true);
+		if (suggestionBar != null) {
+			suggestionBar.prependGuesses(guesses);
+		}
+	}
+
+
+	public void set(@Nullable ArrayList<String> suggestions) {
 		set(suggestions, 0, false);
 	}
 
 
-	public void set(ArrayList<String> suggestions, boolean containsGenerated) {
+	public void set(@Nullable ArrayList<String> suggestions, boolean containsGenerated) {
 		set(suggestions, 0, containsGenerated);
 	}
 
 
-	public void set(ArrayList<String> suggestions, int selectIndex, boolean containsGenerated) {
-		setVisibility(settings, suggestions, false);
+	public void set(@Nullable ArrayList<String> suggestions, int selectIndex, boolean containsGenerated) {
+		setVisibility(settings, suggestions == null || suggestions.isEmpty(), false);
 		if (suggestionBar != null) {
 			suggestionBar.setMany(suggestions, selectIndex, containsGenerated);
 		}
 	}
 
 
-	public void setClipboardItems(LinkedList<CharSequence> clips) {
+	public void setClipboardItems(@NonNull LinkedList<CharSequence> clips) {
 		ArrayList<String> clipStrings = new ArrayList<>(clips.size());
 		for (int i = clips.size() - 1; i >= 0; i--) {
 			String preview = Clipboard.getPreview(i, SuggestionsBar.CLIPBOARD_SUGGESTION_SUFFIX);
@@ -120,9 +138,16 @@ public class SuggestionOps {
 			}
 		}
 
-		setVisibility(settings, clipStrings, true);
+		setVisibility(settings, clipStrings.isEmpty(), true);
 		if (suggestionBar != null) {
 			suggestionBar.setMany(clipStrings, 0, false);
+		}
+	}
+
+
+	public void setTextCase(@NonNull Language language, int textCase) {
+		if (suggestionBar != null) {
+			suggestionBar.setTextCase(language, textCase);
 		}
 	}
 
@@ -135,28 +160,51 @@ public class SuggestionOps {
 
 
 	public String acceptCurrent() {
-		String word = getCurrent();
-		if (Characters.PLACEHOLDER.equals(word)) {
+		final String current = getCurrent();
+		if (Characters.PLACEHOLDER.equals(current)) {
 			return "";
 		}
 
-		if (!word.isEmpty()) {
+		if (!current.isEmpty()) {
 			commitCurrent(true, true);
 		}
 
-		return word;
+		return current;
+	}
+
+
+	public String acceptEdited() {
+		final String current = getCurrent();
+		if (current.isEmpty() || Characters.PLACEHOLDER.equals(current)) {
+			return "";
+		}
+
+		String composingText = textField.getComposingText();
+		if (composingText.length() > current.length() && !composingText.endsWith(current)) {
+			composingText = new StringBuilder(composingText).replace(composingText.length() - current.length(), composingText.length(), current).toString();
+
+			if (appHacks == null) {
+				textField.setComposingText(composingText);
+			} else {
+				appHacks.setComposingText(composingText);
+			}
+		}
+
+		textField.finishComposingText();
+
+		return current;
 	}
 
 
 	public String acceptIncomplete() {
-		String currentWord = this.getCurrent();
-		if (Characters.PLACEHOLDER.equals(currentWord)) {
+		final String current = getCurrent();
+		if (Characters.PLACEHOLDER.equals(current)) {
 			return "";
 		}
 
 		commitCurrent(false, true);
 
-		return currentWord;
+		return current;
 	}
 
 
@@ -248,15 +296,15 @@ public class SuggestionOps {
 	}
 
 
-	private void setVisibility(@Nullable SettingsStore settings, @Nullable ArrayList<String> newSuggestions, boolean clipboardSuggestions) {
-		final boolean areSuggestionsVisible = isInputLimited || clipboardSuggestions || (settings != null && settings.getShowSuggestions());
+	private void setVisibility(@Nullable SettingsStore settings, boolean willBeEmpty, boolean forceVisible) {
+		final boolean areSuggestionsVisible = isInputLimited || forceVisible || (settings != null && settings.getShowSuggestions());
 
 		if (suggestionBar != null) {
 			suggestionBar.setVisible(areSuggestionsVisible);
 		}
 
 		if (statusBar != null) {
-			statusBar.setShown(newSuggestions == null || newSuggestions.isEmpty() || !areSuggestionsVisible);
+			statusBar.setShown(willBeEmpty || !areSuggestionsVisible);
 		}
 	}
 }

@@ -3,9 +3,13 @@ package io.github.sspanak.tt9.ime;
 import android.view.KeyEvent;
 
 import io.github.sspanak.tt9.R;
+import io.github.sspanak.tt9.commands.CmdAddWord;
+import io.github.sspanak.tt9.commands.CmdEditWord;
+import io.github.sspanak.tt9.commands.CommandCollection;
 import io.github.sspanak.tt9.db.words.DictionaryLoader;
 import io.github.sspanak.tt9.ime.modes.InputMode;
 import io.github.sspanak.tt9.ime.modes.InputModeKind;
+import io.github.sspanak.tt9.ime.modes.ModeRecomposing;
 import io.github.sspanak.tt9.languages.LanguageCollection;
 import io.github.sspanak.tt9.ui.UI;
 import io.github.sspanak.tt9.ui.dialogs.AddWordDialog;
@@ -33,38 +37,11 @@ abstract public class CommandHandler extends TextEditingHandler {
 		}
 
 		if (!shouldBeOff() && mainView.isCommandPaletteShown()) {
-			onCommand(key);
+			CommandCollection.getByHardKey(CommandCollection.COLLECTION_PALETTE, key).run(getFinalContext());
 			return true;
 		}
 
 		return super.onNumber(key, hold, repeat);
-	}
-
-
-	private void onCommand(int key) {
-		switch (key) {
-			case 1:
-				showSettings();
-				break;
-			case 2:
-				addWord();
-				break;
-			case 3:
-				toggleVoiceInput();
-				break;
-			case 4:
-				undo();
-				break;
-			case 5:
-				showTextEditingPalette();
-				break;
-			case 6:
-				redo();
-				break;
-			case 8:
-				selectKeyboard();
-				break;
-		}
 	}
 
 
@@ -86,22 +63,7 @@ abstract public class CommandHandler extends TextEditingHandler {
 
 
 	public void addWord() {
-		if (voiceInputOps.isListening()) {
-			return;
-		}
-
-		if (!settings.getPredictiveMode()) {
-			UI.toastShortSingle(this, R.string.add_word_not_available_without_predictive_mode);
-			return;
-		}
-
-		if (mLanguage.isTranscribed()) {
-			UI.toastShortSingle(this, R.string.add_word_not_available_in_language);
-			return;
-		}
-
-		if (DictionaryLoader.getInstance(this).isRunning()) {
-			UI.toastShortSingle(this, R.string.dictionary_loading_please_wait);
+		if (!CmdAddWord.validate(getFinalContext(), settings, mLanguage)) {
 			return;
 		}
 
@@ -111,6 +73,45 @@ abstract public class CommandHandler extends TextEditingHandler {
 		resetStatus();
 
 		new AddWordDialog(getFinalContext(), mLanguage, textField.getSurroundingWord(mLanguage)).show();
+	}
+
+
+	protected void editWord() {
+		if (!CmdEditWord.validate(getFinalContext(), settings, mLanguage)) {
+			return;
+		}
+
+		final int previousMode = mInputMode.getId();
+		if (previousMode == InputMode.MODE_RECOMPOSING) {
+			Logger.d(getClass().getSimpleName(), "Already in recomposing mode. Nothing to do.");
+			return;
+		}
+
+		String word = suggestionOps.getCurrent(mLanguage, mInputMode.getSequenceLength());
+		if (word.isEmpty()) {
+			word = textField.recomposeSurroundingWord(mLanguage);
+		} else {
+			suggestionOps.set(null);
+		}
+
+		if (word.isEmpty()) {
+			UI.toastShortSingle(this, R.string.edit_word_no_selection);
+			return;
+		}
+
+		setInputMode(InputMode.MODE_RECOMPOSING);
+		if (mInputMode.setWordStem(word, false)) {
+			((ModeRecomposing) mInputMode).setOnFinishListener(() -> setInputMode(previousMode));
+			getSuggestions(0, "", null);
+		} else {
+			textField.finishComposingText();
+			setInputMode(previousMode);
+			UI.toastShortSingle(
+				this,
+				"edit_word_invalid_characters",
+				getString(R.string.edit_word_invalid_characters, word, mLanguage.getName())
+			);
+		}
 	}
 
 
@@ -138,22 +139,45 @@ abstract public class CommandHandler extends TextEditingHandler {
 	}
 
 
-	protected void nextInputMode() {
+	protected int nextInputMode() {
 		if (InputModeKind.isPassthrough(mInputMode) || voiceInputOps.isListening()) {
-			return;
-		} else if (allowedInputModes.size() == 1 && allowedInputModes.contains(InputMode.MODE_123)) {
-			mInputMode = !InputModeKind.is123(mInputMode) ? InputMode.getInstance(settings, mLanguage, inputType, textField, InputMode.MODE_123) : mInputMode;
-		} else {
-			suggestionOps.cancelDelayedAccept();
-			mInputMode.onAcceptSuggestion(suggestionOps.acceptIncomplete());
-			resetKeyRepeat();
-
-			int nextModeIndex = (allowedInputModes.indexOf(mInputMode.getId()) + 1) % allowedInputModes.size();
-			mInputMode = InputMode.getInstance(settings, mLanguage, inputType, textField, allowedInputModes.get(nextModeIndex));
-			determineTextCase();
+			return mInputMode.getId();
 		}
 
-		settings.saveInputMode(mInputMode.getId());
+		if (allowedInputModes.size() == 1 && allowedInputModes.contains(InputMode.MODE_123) && !InputModeKind.is123(mInputMode)) {
+			return InputMode.MODE_123;
+		} else {
+			final int nextModeIndex = (allowedInputModes.indexOf(mInputMode.getId()) + 1) % allowedInputModes.size();
+			return allowedInputModes.get(nextModeIndex);
+		}
+	}
+
+
+	protected void setInputMode(int modeId) {
+		if (!allowedInputModes.contains(modeId) && modeId != InputMode.MODE_RECOMPOSING) {
+			return;
+		}
+
+		suggestionOps.cancelDelayedAccept();
+		mInputMode.onAcceptSuggestion(suggestionOps.acceptIncomplete());
+		resetKeyRepeat();
+
+		mInputMode = InputMode.getInstance(settings, mLanguage, inputType, textField, modeId);
+		determineTextCase();
+
+		if (modeId != InputMode.MODE_RECOMPOSING) {
+			settings.saveInputMode(mInputMode.getId());
+		}
+
+		// update the UI
+		getDisplayTextCase(mLanguage, mInputMode.getTextCase());
+		setStatusIcon(mInputMode, mLanguage);
+		statusBar.setText(mInputMode);
+		mainView.render();
+
+		if (settings.isMainLayoutStealth() && !settings.isStatusIconEnabled()) {
+			UI.toastShortSingle(this, mInputMode.getClass().getSimpleName(), mInputMode.toString());
+		}
 	}
 
 
@@ -191,7 +215,7 @@ abstract public class CommandHandler extends TextEditingHandler {
 			.copy(mInputMode);
 
 		if (mInputMode.isTyping()) {
-			getSuggestions(null, this::onAfterLanguageChange);
+			getSuggestions(0, null, this::onAfterLanguageChange);
 		} else {
 			onAfterLanguageChange();
 		}
@@ -199,6 +223,8 @@ abstract public class CommandHandler extends TextEditingHandler {
 		if (InputModeKind.isPredictive(mInputMode)) {
 			DictionaryLoader.autoLoad(this, settings, mLanguage);
 		}
+
+		mindReader.setLanguage(mLanguage);
 
 		forceShowWindow();
 	}
@@ -226,8 +252,14 @@ abstract public class CommandHandler extends TextEditingHandler {
 		mInputMode.skipNextTextCaseDetection();
 		settings.saveTextCase(mInputMode.getTextCase());
 
-		// if there are no suggestions or they are special chars, we don't need to adjust their text case
-		if (currentWord.isEmpty() || (currentWord.length() == 1 && !Character.isAlphabetic(currentWord.charAt(0)))) {
+		if (currentWord.isEmpty() && !suggestionOps.isEmpty()) {
+			// if we have set the suggestions from a different source, e.g. Clipboard or MindReader,
+			// they won't be in the InputMode's state, so adjust the list directly, without any specific rules
+			suggestionOps.setTextCase(mLanguage, mInputMode.getTextCase());
+			appHacks.setComposingText(suggestionOps.getCurrent());
+			return true;
+		} else if (currentWord.isEmpty() || (currentWord.length() == 1 && !Character.isAlphabetic(currentWord.charAt(0)))) {
+			// if there are no suggestions or they are special chars, we don't need to adjust their text case
 			return true;
 		}
 
@@ -236,7 +268,14 @@ abstract public class CommandHandler extends TextEditingHandler {
 		currentSuggestionIndex = suggestionOps.containsStem() ? currentSuggestionIndex - 1 : currentSuggestionIndex;
 
 		suggestionOps.set(mInputMode.getSuggestions(), currentSuggestionIndex, mInputMode.containsGeneratedSuggestions());
-		appHacks.setComposingText(suggestionOps.getCurrent());
+
+		if (InputModeKind.isRecomposing(mInputMode)) {
+			appHacks.setComposingTextPartsWithHighlightedJoining(mInputMode.getWordStem() + suggestionOps.getCurrent(), mInputMode.getRecomposingSuffix());
+		} else {
+			mindReader.setTextCase(mInputMode.getTextCaseRaw());
+			suggestionOps.addGuesses(mindReader.getGuesses());
+			appHacks.setComposingText(suggestionOps.getCurrent());
+		}
 
 		return true;
 	}

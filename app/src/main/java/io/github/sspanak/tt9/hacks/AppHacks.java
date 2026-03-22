@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import io.github.sspanak.tt9.commands.CmdMoveCursor;
-import io.github.sspanak.tt9.ime.helpers.CursorOps;
 import io.github.sspanak.tt9.ime.helpers.Key;
 import io.github.sspanak.tt9.ime.helpers.SuggestionOps;
 import io.github.sspanak.tt9.ime.helpers.TextField;
@@ -16,6 +15,7 @@ import io.github.sspanak.tt9.ime.helpers.TextSelection;
 import io.github.sspanak.tt9.ime.modes.InputMode;
 import io.github.sspanak.tt9.languages.Language;
 import io.github.sspanak.tt9.preferences.settings.SettingsStore;
+import io.github.sspanak.tt9.util.HighlightedText;
 import io.github.sspanak.tt9.util.Text;
 import io.github.sspanak.tt9.util.Timer;
 import io.github.sspanak.tt9.util.sys.DeviceInfo;
@@ -56,9 +56,11 @@ public class AppHacks {
 	 */
 	public boolean isBrutalForceShowNeeded() {
 		return
-			DeviceInfo.AT_LEAST_ANDROID_16
-			&& inputType != null
-			&& (inputType.isFirefoxText() || inputType.isGmailComposeMail());
+			inputType != null
+			&& (
+				(DeviceInfo.AT_LEAST_ANDROID_16 && inputType.isGmailComposeMail())
+				|| (DeviceInfo.AT_LEAST_ANDROID_14 && inputType.isFirefoxText())
+			);
 	}
 
 
@@ -79,23 +81,40 @@ public class AppHacks {
 	}
 
 
+
+	public void setComposingTextWithHighlightedStem(@NonNull String word, @Nullable String stem, boolean isStemFilterFuzzy) {
+		final HighlightedText highText =
+			new HighlightedText(word, true, false)
+			.setRegion(0, stem != null ? stem.length() : 0, true, isStemFilterFuzzy, false);
+
+		setComposingText(highText);
+	}
+
+
+	public void setComposingTextPartsWithHighlightedJoining(@NonNull String word, @NonNull String suffix) {
+		final HighlightedText highText = new HighlightedText(word + suffix, false, false)
+			.setRegion(word.length() - 1, word.length(), true, false, true);
+
+		setComposingText(highText);
+	}
+
+
 	/**
-	 * setComposingTextWithHighlightedStem
 	 * A compatibility function for text fields that do not properly support composing text.
 	 */
-	public void setComposingTextWithHighlightedStem(@NonNull String word, @Nullable String stem, boolean isStemFilterFuzzy) {
+	private void setComposingText(@NonNull HighlightedText word) {
 		if (inputType == null || textField == null) {
 			return;
 		}
 
 		// use composing text but do not highlight it with SpannableString
 		if (inputType.isKindleInvertedTextField()) {
-			textField.setComposingText(word);
+			textField.setComposingText(word.toString());
 			return;
 		}
 
 		// if the composing text starts with an emoji, reset to empty before settings new composing text
-		if (inputType.isWhatsApp() && Text.isGraphic(word)) {
+		if (inputType.isWhatsApp() && Text.isGraphic(word.toString())) {
 			textField.setComposingText("");
 		}
 
@@ -107,7 +126,7 @@ public class AppHacks {
 		Timer.start(COMPOSING_TEXT_TO_RESTART_TIMER);
 
 		// set the composing text in the app
-		textField.setComposingTextWithHighlightedStem(word, stem, isStemFilterFuzzy);
+		textField.setComposingText(word.highlight());
 	}
 
 
@@ -178,26 +197,6 @@ public class AppHacks {
 
 
 	/**
-	 * Performs extra operations when the cursor moves and returns "true" if the selection was handled,
-	 * "false" otherwise.
-	 */
-	public boolean onUpdateSelection(
-		@NonNull InputMode inputMode,
-		@NonNull SuggestionOps suggestionOps,
-		int oldSelStart,
-		int oldSelEnd,
-		int newSelStart,
-		int newSelEnd,
-		int candidatesStart,
-		int candidatesEnd
-	) {
-		return
-			CursorOps.isInputReset(oldSelStart, oldSelEnd, newSelStart, newSelEnd, candidatesStart, candidatesEnd)
-			&& acceptComposingTextOnCursorReset(inputMode, suggestionOps, textField);
-	}
-
-
-	/**
 	 * onEnter
 	 * Tries to guess and send the correct confirmation key code or sequence of key codes,
 	 * depending on the connected application and input field. On invalid connection or field,
@@ -233,8 +232,8 @@ public class AppHacks {
 	 * word then causes the previous word to pop back up. We use this hack to detect such situations
 	 * and reset the InputMode upon sending a message.
 	 */
-	private boolean acceptComposingTextOnCursorReset(@NonNull InputMode inputMode, @NonNull SuggestionOps suggestionOps, @Nullable TextField textField) {
-		if (!isComposingCausingRestarts() && textField != null && textField.isEmpty() && !(inputMode.getSuggestions().isEmpty() && suggestionOps.isEmpty())) {
+	public boolean acceptComposingTextOnCursorReset(@NonNull InputMode inputMode, @NonNull SuggestionOps suggestionOps, @Nullable TextField textField) {
+		if (!isComposingCausingRestarts() && textField != null && textField.isEmpty() && !(inputMode.getSuggestions().isEmpty() && suggestionOps.containsNoOrdinaryWords())) {
 			inputMode.onAcceptSuggestion(suggestionOps.acceptIncomplete());
 			inputMode.reset();
 			return true;

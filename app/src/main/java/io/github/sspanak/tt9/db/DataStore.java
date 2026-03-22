@@ -4,12 +4,13 @@ import android.content.Context;
 import android.os.CancellationSignal;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 import io.github.sspanak.tt9.db.entities.AddWordResult;
 import io.github.sspanak.tt9.db.entities.CustomWord;
@@ -18,29 +19,36 @@ import io.github.sspanak.tt9.db.words.DictionaryLoader;
 import io.github.sspanak.tt9.db.words.WordStore;
 import io.github.sspanak.tt9.languages.Language;
 import io.github.sspanak.tt9.preferences.settings.SettingsStore;
-import io.github.sspanak.tt9.util.ConsumerCompat;
 import io.github.sspanak.tt9.util.Logger;
+import io.github.sspanak.tt9.util.SupremeExecutor;
 
 public class DataStore {
 	private final static String LOG_TAG = DataStore.class.getSimpleName();
 
-	private static final ExecutorService executor = Executors.newCachedThreadPool();
+	private static ExecutorService executor;
 
-	private static Future<?> getWordsTask;
-	private static CancellationSignal getWordsCancellationSignal = new CancellationSignal();
+	@Nullable private static Future<?> getWordsTask;
+	@NonNull private static CancellationSignal getWordsCancellationSignal = new CancellationSignal();
 
 	private static WordPairStore pairs;
 	private static WordStore words;
 
 
-	public static void init(Context context) {
-		words = words == null ? new WordStore(context.getApplicationContext()) : words;
+	public static void init(@NonNull Context context) {
+		executor = executor == null ? SupremeExecutor.get() : executor;
 		pairs = pairs == null ? new WordPairStore(context.getApplicationContext()) : pairs;
+		words = words == null ? new WordStore(context.getApplicationContext()) : words;
 	}
 
 
-	private static void runInThread(@NonNull Runnable action) {
-		executor.submit(action);
+	@Nullable
+	private static Future<?> runInThread(@NonNull Runnable action) {
+		if (executor != null) {
+			return executor.submit(action);
+		} else {
+			Logger.e(LOG_TAG, "Cannot run a datastore task without an ExecutorService.");
+			return null;
+		}
 	}
 
 
@@ -64,7 +72,7 @@ public class DataStore {
 	}
 
 
-	public static void getLastLanguageUpdateTime(ConsumerCompat<String> notification, Language language) {
+	public static void getLastLanguageUpdateTime(Consumer<String> notification, Language language) {
 		runInThread(() -> notification.accept(words.getLanguageFileHash(language)));
 	}
 
@@ -77,7 +85,7 @@ public class DataStore {
 	}
 
 
-	public static void put(ConsumerCompat<AddWordResult> statusHandler, Language language, String word) {
+	public static void put(Consumer<AddWordResult> statusHandler, Language language, String word) {
 		runInThread(() -> statusHandler.accept(words.put(language, word)));
 	}
 
@@ -87,18 +95,18 @@ public class DataStore {
 	}
 
 
-	public static void getWords(ConsumerCompat<ArrayList<String>> dataHandler, Language language, String sequence, boolean onlyExactSequence, String filter, boolean orderByLength, int minWords, int maxWords) {
+	public static void getWords(Consumer<ArrayList<String>> dataHandler, Language language, String sequence, boolean onlyExactSequence, String filter, boolean orderByLength, int minWords, int maxWords) {
 		if (getWordsTask != null && !getWordsTask.isDone()) {
 			getWordsCancellationSignal.cancel();
 		}
 
 		getWordsCancellationSignal = new CancellationSignal();
-		getWordsTask = executor.submit(() -> getWordsSync(dataHandler, language, sequence, onlyExactSequence, filter, orderByLength, minWords, maxWords));
-		executor.submit(DataStore::setGetWordsTimeout);
+		getWordsTask = runInThread(() -> getWordsSync(dataHandler, language, sequence, onlyExactSequence, filter, orderByLength, minWords, maxWords));
+		runInThread(DataStore::setGetWordsTimeout);
 	}
 
 
-	private static void getWordsSync(ConsumerCompat<ArrayList<String>> dataHandler, Language language, String sequence, boolean onlyExactSequence, String filter, boolean orderByLength, int minWords, int maxWords) {
+	private static void getWordsSync(Consumer<ArrayList<String>> dataHandler, Language language, String sequence, boolean onlyExactSequence, String filter, boolean orderByLength, int minWords, int maxWords) {
 		try {
 			ArrayList<String> data = words.getMany(getWordsCancellationSignal, language, sequence, onlyExactSequence, filter, orderByLength, minWords, maxWords);
 			dataHandler.accept(data);
@@ -109,6 +117,10 @@ public class DataStore {
 
 
 	private static void setGetWordsTimeout() {
+		if (getWordsTask == null) {
+			return;
+		}
+
 		try {
 			getWordsTask.get(SettingsStore.SLOW_QUERY_TIMEOUT, TimeUnit.MILLISECONDS);
 		} catch (Exception e) {
@@ -118,18 +130,24 @@ public class DataStore {
 	}
 
 
-	public static void getCustomWords(ConsumerCompat<ArrayList<CustomWord>> dataHandler, String wordFilter, int maxWords) {
+	public static void getCustomWords(Consumer<ArrayList<CustomWord>> dataHandler, String wordFilter, int maxWords) {
 		runInThread(() -> dataHandler.accept(words.getSimilarCustom(wordFilter, maxWords)));
 	}
 
 
-	public static void countCustomWords(ConsumerCompat<Long> dataHandler) {
+	public static void countCustomWords(Consumer<Long> dataHandler) {
 		runInThread(() -> dataHandler.accept(words.countCustom()));
 	}
 
 
-	public static void exists(ConsumerCompat<ArrayList<Integer>> dataHandler, ArrayList<Language> languages) {
+	public static void exists(Consumer<ArrayList<Integer>> dataHandler, ArrayList<Language> languages) {
 		runInThread(() -> dataHandler.accept(words.exists(languages)));
+	}
+
+
+	@Nullable
+	public static String getWord(@NonNull Language language, @NonNull String word, @NonNull String sequence) {
+		return words.getWord(language, word, sequence);
 	}
 
 

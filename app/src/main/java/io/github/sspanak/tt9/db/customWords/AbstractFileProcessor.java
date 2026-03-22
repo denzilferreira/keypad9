@@ -4,15 +4,20 @@ import android.app.Activity;
 
 import androidx.annotation.NonNull;
 
-import io.github.sspanak.tt9.util.ConsumerCompat;
+import java.util.function.Consumer;
 
 abstract public class AbstractFileProcessor {
+	protected Runnable cancelHandler;
 	protected Runnable failureHandler;
 	protected Runnable startHandler;
-	protected ConsumerCompat<String> successHandler;
+	protected Consumer<String> successHandler;
 
 	private Thread processThread;
 	protected String statusMessage = "";
+
+	public boolean isCanceled() {
+		return processThread != null && processThread.isInterrupted();
+	}
 
 	public boolean isRunning() {
 		return processThread != null && processThread.isAlive();
@@ -20,6 +25,12 @@ abstract public class AbstractFileProcessor {
 
 	public String getStatusMessage() {
 		return statusMessage;
+	}
+
+	protected void sendCancel() {
+		if (cancelHandler != null) {
+			cancelHandler.run();
+		}
 	}
 
 	protected void sendFailure() {
@@ -35,6 +46,10 @@ abstract public class AbstractFileProcessor {
 		}
 	}
 
+	public void setCancelHandler(Runnable handler) {
+		cancelHandler = handler;
+	}
+
 	public void setFailureHandler(Runnable handler) {
 		failureHandler = handler;
 	}
@@ -43,8 +58,14 @@ abstract public class AbstractFileProcessor {
 		startHandler = handler;
 	}
 
-	public void setSuccessHandler(ConsumerCompat<String> handler) {
+	public void setSuccessHandler(Consumer<String> handler) {
 		successHandler = handler;
+	}
+
+	public void cancel() {
+		if (isRunning()) {
+			processThread.interrupt();
+		}
 	}
 
 	public boolean run(@NonNull Activity activity) {

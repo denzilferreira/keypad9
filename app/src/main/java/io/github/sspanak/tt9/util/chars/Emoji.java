@@ -5,11 +5,7 @@ import android.graphics.Paint;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import io.github.sspanak.tt9.util.sys.DeviceInfo;
-
 class Emoji extends Punctuation {
-	final public static boolean NO_EMOJI_SUPPORT = !DeviceInfo.AT_LEAST_ANDROID_6;
-
 	final private static ArrayList<String> TextEmoticons = new ArrayList<>(Arrays.asList(
 		":)", ":D", ":P", ";)", "\\m/", ":-O", ":|", ":("
 	));
@@ -37,11 +33,11 @@ class Emoji extends Punctuation {
 		return !(ch < 256 || Character.isLetterOrDigit(ch) || Character.isAlphabetic(ch));
 	}
 
-	public static ArrayList<String> getEmoji(int level) {
-		if (NO_EMOJI_SUPPORT) {
-			return new ArrayList<>(TextEmoticons);
-		}
+	public static boolean isGraphic(int codePoint) {
+		return !(codePoint < 256 || Character.isLetterOrDigit(codePoint) || Character.isAlphabetic(codePoint));
+	}
 
+	public static ArrayList<String> getEmoji(int level) {
 		if (level < 0 || level >= Emoji.size()) {
 			return new ArrayList<>();
 		}
@@ -58,7 +54,7 @@ class Emoji extends Punctuation {
 	}
 
 	public static int getMaxEmojiLevel() {
-		return NO_EMOJI_SUPPORT ? 1 : Emoji.size();
+		return Emoji.size();
 	}
 
 	public static boolean isBuiltInEmoji(String emoji) {
