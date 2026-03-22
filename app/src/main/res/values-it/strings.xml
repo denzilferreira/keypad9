@@ -68,6 +68,7 @@
 	<string name="pref_color_scheme_device_light">Chiaro di sistema</string>
 	<string name="dictionary_cancel_load">Annullare il caricamento</string>
 	<string name="dictionary_loaded">Caricamento del dizionario terminato.</string>
+	<string name="dictionary_already_loading">Il dizionario è già in caricamento. Attendere il completamento.</string>
 	<string name="dictionary_loading">Caricamento del dizionario (%1$s)…</string>
 	<string name="dictionary_loading_please_wait">Attendi che il dizionario si carichi, per favore.</string>
 	<string name="dictionary_loading_short">Caricamento / %1$s… %2$d</string>

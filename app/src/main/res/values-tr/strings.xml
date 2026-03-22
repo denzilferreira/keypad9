@@ -70,6 +70,7 @@
 	<string name="dictionary_load_no_internet">“%1$s” dili için sözlük indirilemedi. İnternet bağlantısını kontrol edin.</string>
 	<string name="dictionary_load_cancelled">Yükleme iptal edildi.</string>
 	<string name="dictionary_loaded">Sözlük başarıyla yüklendi.</string>
+	<string name="dictionary_already_loading">Sözlük zaten yükleniyor. Lütfen tamamlanmasını bekleyin.</string>
 	<string name="dictionary_loading">(%1$s) sözlük yükleniyor…</string>
 	<string name="dictionary_loading_please_wait">Sözlük yüklenirken lütfen bekleyiniz.</string>
 	<string name="dictionary_loading_short">Yükleniyor / %1$s… %2$d</string>

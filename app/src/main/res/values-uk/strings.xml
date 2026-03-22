@@ -101,6 +101,7 @@
 	<string name="dictionary_load_no_internet">Не вдалося завантажити словник для мови \"%1$s\". Перевірте підключення до Інтернету.</string>
 	<string name="dictionary_load_cancelled">Завантаження словника скасовано.</string>
 	<string name="dictionary_loaded">Словник завантажено.</string>
+	<string name="dictionary_already_loading">Словник вже завантажується. Будь ласка, зачекайте на завершення.</string>
 	<string name="dictionary_loading">Словник завантажується (%1$s)…</string>
 	<string name="dictionary_loading_indeterminate">Словник завантажується</string>
 	<string name="dictionary_loading_please_wait">Будь ласка, дочекайтесь завантаження словника.</string>

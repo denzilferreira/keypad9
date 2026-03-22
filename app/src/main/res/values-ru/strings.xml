@@ -48,6 +48,7 @@
 	<string name="dictionary_cancel_load">Отменить загрузку</string>
 	<string name="dictionary_load_error">Ошибка загрузки словаря для языка «%1$s» (%2$s).</string>
 	<string name="dictionary_loaded">Загрузка словаря завершена.</string>
+	<string name="dictionary_already_loading">Словарь уже загружается. Пожалуйста, дождитесь завершения.</string>
 	<string name="dictionary_loading">Загрузка словаря (%1$s)…</string>
 	<string name="dictionary_loading_please_wait">Пожалуйста, подождите, пока словарь загружается.</string>
 	<string name="dictionary_loading_short">Загрузка / %1$s… %2$d</string>
