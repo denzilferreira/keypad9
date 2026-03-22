@@ -92,6 +92,7 @@
 	<string name="dictionary_load_no_internet">נכשל בהורדת המילון עבור השפה \"%1$s\". בדוק את חיבור האינטרנט.</string>
 	<string name="dictionary_load_cancelled">טעינת המילון בוטלה</string>
 	<string name="dictionary_loaded">טעינת המילון הושלמה.</string>
+	<string name="dictionary_already_loading">המילון כבר נטען. אנא המתן לסיום.</string>
 	<string name="dictionary_loading">טוען מילון (%1$s)…</string>
 	<string name="dictionary_loading_indeterminate">טוען מילון</string>
 	<string name="dictionary_loading_please_wait">אנא המתינו עד שהמילון יטען.</string>

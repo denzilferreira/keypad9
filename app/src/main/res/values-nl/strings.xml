@@ -73,6 +73,7 @@
 	<string name="dictionary_load_no_internet">Het downloaden van het woordenboek voor de taal \"%1$s\" is mislukt. Controleer de internetverbinding.</string>
 	<string name="dictionary_load_cancelled">Laden geannuleerd.</string>
 	<string name="dictionary_loaded">Woordenboek laden voltooid.</string>
+	<string name="dictionary_already_loading">Het woordenboek wordt al geladen. Wacht tot het klaar is.</string>
 	<string name="dictionary_loading">Woordenboek laden (%1$s)…</string>
 	<string name="dictionary_loading_please_wait">Wacht alsjeblieft tot het woordenboek geladen is.</string>
 	<string name="dictionary_loading_short">Laden / %1$s… %2$d</string>

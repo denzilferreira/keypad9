@@ -14,10 +14,13 @@ import java.util.Set;
 import io.github.sspanak.tt9.BuildConfig;
 import io.github.sspanak.tt9.R;
 import io.github.sspanak.tt9.db.entities.WordFile;
+import io.github.sspanak.tt9.db.words.DictionaryLoader;
 import io.github.sspanak.tt9.languages.LanguageKind;
+import io.github.sspanak.tt9.languages.LanguageCollection;
 import io.github.sspanak.tt9.languages.NaturalLanguage;
 import io.github.sspanak.tt9.preferences.PreferencesActivity;
 import io.github.sspanak.tt9.preferences.settings.SettingsStore;
+import io.github.sspanak.tt9.ui.UI;
 
 public class PreferenceSwitchLanguage extends SwitchPreferenceCompat {
 	public static final String KEY_PREFIX = "language_";
@@ -73,7 +76,8 @@ public class PreferenceSwitchLanguage extends SwitchPreferenceCompat {
 
 
 	private static boolean handleChange(Preference p, Object newValue) {
-		SettingsStore settings = ((PreferencesActivity) p.getContext()).getSettings();
+		PreferencesActivity activity = (PreferencesActivity) p.getContext();
+		SettingsStore settings = activity.getSettings();
 		String languageSettingsId = ((PreferenceSwitchLanguage) p).getLanguageId();
 
 		Set<String> enabledLanguages = new HashSet<>();
@@ -86,6 +90,7 @@ public class PreferenceSwitchLanguage extends SwitchPreferenceCompat {
 
 		if ((boolean) newValue) {
 			enabledLanguages.add(languageSettingsId);
+			loadDictionary(activity, languageSettingsId, (PreferenceSwitchLanguage) p);
 		} else {
 			enabledLanguages.remove(languageSettingsId);
 		}
@@ -93,6 +98,23 @@ public class PreferenceSwitchLanguage extends SwitchPreferenceCompat {
 		settings.saveEnabledLanguageIds(enabledLanguages);
 
 		return true;
+	}
+
+
+	private static void loadDictionary(PreferencesActivity activity, String languageSettingsId, PreferenceSwitchLanguage preferenceItem) {
+		NaturalLanguage language = LanguageCollection.getLanguage(languageSettingsId);
+		if (language == null) {
+			return;
+		}
+
+		DictionaryLoader loader = DictionaryLoader.getInstance(activity);
+		if (loader.isRunning()) {
+			UI.toastFromAsync(activity, R.string.dictionary_already_loading);
+			return;
+		}
+
+		loader.load(activity, language);
+		preferenceItem.setLoaded();
 	}
 
 

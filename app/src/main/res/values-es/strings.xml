@@ -102,6 +102,7 @@
 	<string name="dictionary_load_no_internet">Error al descargar el diccionario para el idioma \"%1$s\". Verifique la conexión a Internet.</string>
 	<string name="dictionary_load_cancelled">Carga del diccionario cancelada.</string>
 	<string name="dictionary_loaded">Diccionario cargado con éxito.</string>
+	<string name="dictionary_already_loading">El diccionario ya se está cargando. Espere a que termine.</string>
 	<string name="pref_suggestion_font_size">Tamaño de fuente de las sugerencias</string>
 	<string name="pref_suggestion_smooth_scroll">Desplazamiento suave de sugerencias</string>
 	<string name="pref_upside_down_keys">Orden de teclas inverso</string>

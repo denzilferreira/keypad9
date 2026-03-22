@@ -156,6 +156,7 @@
 	<string name="dictionary_load_no_internet">Failed downloading the dictionary for language \"%1$s\". Check the Internet connection.</string>
 	<string name="dictionary_load_cancelled">Dictionary load cancelled.</string>
 	<string name="dictionary_loaded">Dictionary load completed.</string>
+	<string name="dictionary_already_loading">Dictionary is already loading. Please wait for it to finish.</string>
 	<string name="dictionary_loading">Loading dictionary (%1$s)…</string>
 	<string name="dictionary_loading_indeterminate">Loading dictionary</string>
 	<string name="dictionary_loading_please_wait">Please wait for the dictionary to load.</string>

@@ -90,6 +90,7 @@
 	<string name="dictionary_load_no_internet">Falha ao baixar o dicionário para o idioma \"%1$s\". Verifique a conexão com a Internet.</string>
 	<string name="dictionary_load_cancelled">Carregamento de dicionário cancelado.</string>
 	<string name="dictionary_loaded">Dicionário carregado com sucesso.</string>
+	<string name="dictionary_already_loading">O dicionário já está sendo carregado. Aguarde até terminar.</string>
 	<string name="dictionary_loading">Carregando dicionário (%1$s)…</string>
 	<string name="dictionary_loading_indeterminate">Carregando dicionário…</string>
 	<string name="dictionary_loading_please_wait">Aguarde o carregamento do dicionário, por favor</string>
