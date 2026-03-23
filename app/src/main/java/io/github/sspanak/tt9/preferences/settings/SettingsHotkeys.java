@@ -89,7 +89,7 @@ public class SettingsHotkeys extends SettingsVirtualNumpad {
 		);
 
 		getPrefsEditor().putString(CmdCommandPalette.ID, String.valueOf(-KeyEvent.KEYCODE_STAR)); // negative means "hold"
-		getPrefsEditor().putString(CmdNextInputMode.ID, String.valueOf(KeyEvent.KEYCODE_POUND)); // top-left - negative means hold
+		getPrefsEditor().putString(CmdNextInputMode.ID, String.valueOf(KeyEvent.KEYCODE_POUND));
 		getPrefsEditor().putString(CmdNextLanguage.ID, String.valueOf(411)); // top-right - negative means "hold"
 		getPrefsEditor().putString(CmdSelectKeyboard.ID, String.valueOf(414)); // top-left - negative means "hold"
 		getPrefsEditor().putString(CmdShift.ID, String.valueOf(KeyEvent.KEYCODE_STAR));
